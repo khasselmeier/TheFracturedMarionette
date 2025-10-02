@@ -104,12 +104,12 @@ Material:
     - _SpecularHighlights: 1
     - _SrcBlend: 1
     - _StrokeBlendingNoiseScale: 500
-    - _StrokeBlendingNoiseStrength: 0.15
+    - _StrokeBlendingNoiseStrength: 0.12
     - _StrokeRandomness: 1
-    - _StrokeScale: 5
+    - _StrokeScale: 5.7
     - _UVSec: 0
     - _UseBlendingNoise: 1
-    - _Variation: 0.1
+    - _Variation: 0.673
     - _ZWrite: 1
     m_Colors:
     - _BaseColor: {r: 0.32156864, g: 0.627451, b: 0.2784314, a: 0}
