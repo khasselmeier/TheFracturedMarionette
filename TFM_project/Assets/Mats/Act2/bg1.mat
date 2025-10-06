@@ -117,13 +117,13 @@ Material:
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
     - _SrcBlend: 1
-    - _StrokeBlendingNoiseScale: 500
-    - _StrokeBlendingNoiseStrength: 0.15
-    - _StrokeRandomness: 1
+    - _StrokeBlendingNoiseScale: 75
+    - _StrokeBlendingNoiseStrength: 0.128
+    - _StrokeRandomness: 0.535
     - _StrokeScale: 5
     - _UVSec: 0
     - _UseBlendingNoise: 1
-    - _Variation: 0.1
+    - _Variation: 0.507
     - _ZWrite: 1
     m_Colors:
     - _BaseColor: {r: 0.39607844, g: 0.32941177, b: 0.27450982, a: 0}
