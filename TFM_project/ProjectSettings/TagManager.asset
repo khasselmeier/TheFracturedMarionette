@@ -6,6 +6,7 @@ TagManager:
   tags:
   - climbable
   - ACT_END
+  - Enemy
   layers:
   - Default
   - TransparentFX
