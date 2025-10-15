@@ -10,10 +10,7 @@ public class MasterUIManager : MonoBehaviour
     public GameObject mainMenuUI;
     public GameObject howToPlayUI;
     public GameObject returnButton;
-
-    [Header("Image Fade Settings")]
-    public Image fadeImage;
-    public float fadeImageDuration = 2.0f;
+    public GameObject optionsUI;
 
     //called when the Play button is pressed
     public void PlayGame()
@@ -37,10 +34,20 @@ public class MasterUIManager : MonoBehaviour
     //called when the How To Play button is pressed
     public void ShowHowToPlay()
     {
-        Debug.Log("Show How to Play");
+        Debug.Log("Show How to Play UI");
 
         mainMenuUI.SetActive(false);
         howToPlayUI.SetActive(true);
+        returnButton.SetActive(true);
+    }
+
+    //called when the Options button is pressed
+    public void ShowOptions()
+    {
+        Debug.Log("Show Options UI");
+
+        mainMenuUI.SetActive(false);
+        optionsUI.SetActive(true);
         returnButton.SetActive(true);
     }
 
@@ -52,21 +59,5 @@ public class MasterUIManager : MonoBehaviour
         howToPlayUI.SetActive(false);
         mainMenuUI.SetActive(true);
         returnButton.SetActive(false);
-    }
-
-    public void FadeInImage()
-    {
-        if (fadeImage != null)
-        {
-            StartCoroutine(FadeInImageRoutine());
-        }
-    }
-
-    private IEnumerator FadeInImageRoutine()
-    {
-        fadeImage.canvasRenderer.SetAlpha(0f);
-        fadeImage.gameObject.SetActive(true);
-        fadeImage.CrossFadeAlpha(1f, fadeImageDuration, false);
-        yield return new WaitForSeconds(fadeImageDuration);
     }
 }
