@@ -923,8 +923,7 @@ MonoBehaviour:
   mainMenuUI: {fileID: 0}
   howToPlayUI: {fileID: 0}
   returnButton: {fileID: 0}
-  fadeImage: {fileID: 0}
-  fadeImageDuration: 2
+  optionsUI: {fileID: 0}
 --- !u!222 &207809886601177292
 CanvasRenderer:
   m_ObjectHideFlags: 0
