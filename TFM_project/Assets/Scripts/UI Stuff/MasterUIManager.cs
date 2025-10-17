@@ -15,7 +15,7 @@ public class MasterUIManager : MonoBehaviour
     //called when the Play button is pressed
     public void PlayGame()
     {
-        SceneManager.LoadScene("MainGame");
+        SceneManager.LoadScene("MainGameAct1");
     }
 
     //called when the Restart button is pressed

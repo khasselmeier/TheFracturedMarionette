@@ -65,11 +65,11 @@ namespace BitWave_Labs.AnimatedTextReveal
                 // Ensure material tint is opaque
                 textMesh.color = new Color(textMesh.color.r, textMesh.color.g, textMesh.color.b, 1f);
                 // Start everything fully visible
-                SetAllCharactersAlpha(150);
+                SetAllCharactersAlpha(255);
             }
 
             // Compute one “step” of alpha change per frame
-            byte fadeStep = (byte)Mathf.Max(1, 150 / characterSpread);
+            byte fadeStep = (byte)Mathf.Max(1, 255 / characterSpread);
 
             int charsProcessed = 0;
             bool done = false;
@@ -91,7 +91,7 @@ namespace BitWave_Labs.AnimatedTextReveal
 
                     // Compute new alpha up or down
                     int delta = fadeIn ? +fadeStep : -fadeStep;
-                    byte nextAlpha = (byte)Mathf.Clamp(currentAlpha + delta, 0, 150);
+                    byte nextAlpha = (byte)Mathf.Clamp(currentAlpha + delta, 0, 255);
 
                     // Apply to all four verts
                     newVertexColors[vertIdx + 0].a = nextAlpha;
@@ -112,7 +112,7 @@ namespace BitWave_Labs.AnimatedTextReveal
                 {
                     TMP_CharacterInfo lastChar = textInfo.characterInfo[totalChars - 1];
                     int finalAlpha = newVertexColors[lastChar.vertexIndex].a;
-                    done = fadeIn ? finalAlpha == 150 : finalAlpha == 0;
+                    done = fadeIn ? finalAlpha == 255 : finalAlpha == 0;
                 }
 
                 // Wait just like your old methods
