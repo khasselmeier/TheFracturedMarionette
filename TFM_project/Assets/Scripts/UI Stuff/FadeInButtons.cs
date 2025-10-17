@@ -41,10 +41,11 @@ public class FadeInButtons : MonoBehaviour
 
     private IEnumerator FadeInRoutine()
     {
+        //initial time to wait before fading in buttons
+        yield return new WaitForSeconds(fadeInDelay);
+
         foreach (Button btn in buttons)
         {
-            yield return new WaitForSeconds(delayBetweenButtons);
-
             //get image & TMP text
             Image btnImage = btn.GetComponent<Image>();
             TextMeshProUGUI btnText = btn.GetComponentInChildren<TextMeshProUGUI>();

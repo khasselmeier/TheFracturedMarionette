@@ -10,6 +10,7 @@ public class MasterUIManager : MonoBehaviour
     public GameObject mainMenuUI;
     public GameObject howToPlayUI;
     public GameObject returnButton;
+    public GameObject restartButton;
 
     //called when the Play button is pressed
     public void PlayGame()

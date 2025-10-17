@@ -785,7 +785,7 @@ MonoBehaviour:
   mainMenuUI: {fileID: 0}
   howToPlayUI: {fileID: 0}
   returnButton: {fileID: 0}
-  optionsUI: {fileID: 0}
+  restartButton: {fileID: 5795443315378554493}
 --- !u!114 &2694782739165388482
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1038,15 +1038,15 @@ MonoBehaviour:
       m_Calls: []
   m_text: Restart
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 5f873c244403cf642802aae74036cb73, type: 2}
-  m_sharedMaterial: {fileID: -4741656578054910549, guid: 5f873c244403cf642802aae74036cb73, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 49de5fce3140d1146be33bce449c74fb, type: 2}
+  m_sharedMaterial: {fileID: 2387263437737620276, guid: 49de5fce3140d1146be33bce449c74fb, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 2533359615
-  m_fontColor: {r: 1, g: 1, b: 1, a: 0.5882353}
+    rgba: 1593835519
+  m_fontColor: {r: 1, g: 1, b: 1, a: 0.36862746}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -1063,7 +1063,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 24.15
+  m_fontSize: 28.3
   m_fontSizeBase: 30
   m_fontWeight: 400
   m_enableAutoSizing: 1

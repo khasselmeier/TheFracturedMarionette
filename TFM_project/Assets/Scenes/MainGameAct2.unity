@@ -2176,7 +2176,7 @@ MonoBehaviour:
   fadeLastLine: 0
   delayBeforeFadeOut: 1
   delayBeforeFadeIn: 1
-  initialDelay: 1
+  initialDelay: 0.5
 --- !u!114 &637296728
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2219,7 +2219,7 @@ MonoBehaviour:
   mainMenuUI: {fileID: 0}
   howToPlayUI: {fileID: 0}
   returnButton: {fileID: 0}
-  optionsUI: {fileID: 0}
+  restartButton: {fileID: 0}
 --- !u!114 &637296731
 MonoBehaviour:
   m_ObjectHideFlags: 0
