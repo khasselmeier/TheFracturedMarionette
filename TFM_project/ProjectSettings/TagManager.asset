@@ -4,14 +4,15 @@
 TagManager:
   serializedVersion: 3
   tags:
-  - climbable
   - ACT_END
   - Enemy
+  - Climb
+  - Push
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - pushableLayer
   - Water
   - UI
   - 

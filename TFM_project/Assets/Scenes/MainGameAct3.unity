@@ -963,7 +963,6 @@ GameObject:
   - component: {fileID: 637296729}
   - component: {fileID: 637296728}
   - component: {fileID: 637296727}
-  - component: {fileID: 637296730}
   - component: {fileID: 637296731}
   m_Layer: 0
   m_Name: _SceneUIManager
@@ -1035,22 +1034,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a5730e6d31f86942add2264668277aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &637296730
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 637296725}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 41cd18d9aa359044691856aa1c600c5b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  mainMenuUI: {fileID: 0}
-  howToPlayUI: {fileID: 0}
-  returnButton: {fileID: 0}
-  restartButton: {fileID: 0}
 --- !u!114 &637296731
 MonoBehaviour:
   m_ObjectHideFlags: 0
