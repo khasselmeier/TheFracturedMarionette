@@ -4,20 +4,17 @@ using TMPro;
 public class InteractionPrompt : MonoBehaviour
 {
     [Header("UI Settings")]
-    public TextMeshProUGUI promptText;     // Assign in Inspector
-    public float detectionRadius = 2f;     // Distance for showing prompt
+    public TextMeshProUGUI promptText;
+    public float detectionRadius = 2f;
 
     private Transform player;
     private string currentPrompt = "";
+    private bool isPlayerNearby = false;
 
     private void Start()
     {
-        // Find the player by tag
-        GameObject playerObj = GameObject.FindGameObjectWithTag("Player");
-        if (playerObj != null)
-            player = playerObj.transform;
+        player = GameObject.FindGameObjectWithTag("Player")?.transform;
 
-        // Hide text at start
         if (promptText != null)
             promptText.gameObject.SetActive(false);
     }
@@ -27,26 +24,23 @@ public class InteractionPrompt : MonoBehaviour
         if (player == null || promptText == null)
             return;
 
-        // Measure distance between player and this object
         float distance = Vector3.Distance(player.position, transform.position);
 
-        // If within detection range
-        if (distance <= detectionRadius)
+        // Add a small hysteresis buffer (prevents flicker near the threshold)
+        if (!isPlayerNearby && distance <= detectionRadius)
         {
+            isPlayerNearby = true;
             ShowPrompt();
         }
-        else
+        else if (isPlayerNearby && distance > detectionRadius + 0.3f) // buffer of 0.3
         {
+            isPlayerNearby = false;
             HidePrompt();
         }
     }
 
     private void ShowPrompt()
     {
-        if (!promptText.gameObject.activeSelf)
-            promptText.gameObject.SetActive(true);
-
-        // Set prompt based on object tag
         switch (gameObject.tag)
         {
             case "Push":
@@ -60,16 +54,18 @@ public class InteractionPrompt : MonoBehaviour
                 break;
         }
 
-        promptText.text = currentPrompt;
+        if (!string.IsNullOrEmpty(currentPrompt))
+        {
+            promptText.text = currentPrompt;
+            promptText.gameObject.SetActive(true);
+        }
     }
 
     private void HidePrompt()
     {
-        if (promptText.gameObject.activeSelf)
-            promptText.gameObject.SetActive(false);
+        promptText.gameObject.SetActive(false);
     }
 
-    //visualize detection radius in editor
     private void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.cyan;
