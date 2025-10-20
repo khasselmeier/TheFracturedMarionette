@@ -12,6 +12,7 @@ public class EnemyMovement : MonoBehaviour
     public float detectionRange = 2f;
     public float attackRange = 1f;
     public float attackCooldown = 2f;
+    public float attackDamage = 1f;
 
     private NavMeshAgent agent;
     private Animator animator;
@@ -54,12 +55,12 @@ public class EnemyMovement : MonoBehaviour
         if (isChasing && distance <= attackRange && Time.time - lastAttackTime > attackCooldown)
         {
             StartCoroutine(AttackPlayer());
+            isAttacking = true;
         }
     }
 
     private System.Collections.IEnumerator AttackPlayer()
     {
-        isAttacking = true;
         agent.isStopped = true;
         animator.SetTrigger("Attack");
 
@@ -69,8 +70,10 @@ public class EnemyMovement : MonoBehaviour
         lastAttackTime = Time.time;
         agent.isStopped = false;
         isAttacking = false;
+        PlayerStatus.Instance.TakeDamage(attackDamage);
     }
 
+    /*
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.CompareTag("Player"))
@@ -80,6 +83,7 @@ public class EnemyMovement : MonoBehaviour
                 StartCoroutine(AttackPlayer());
         }
     }
+    */
 
     //visualize detection range in editor
     private void OnDrawGizmosSelected()
