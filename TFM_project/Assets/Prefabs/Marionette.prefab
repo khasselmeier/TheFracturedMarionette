@@ -150,6 +150,7 @@ GameObject:
   - component: {fileID: 7765880197832633672}
   - component: {fileID: 3701803717829342189}
   - component: {fileID: 5942169099242019817}
+  - component: {fileID: 148714739041703224}
   m_Layer: 0
   m_Name: Marionette
   m_TagString: Player
@@ -268,6 +269,22 @@ MonoBehaviour:
   pushableLayer:
     serializedVersion: 2
     m_Bits: 8
+--- !u!114 &148714739041703224
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3953921855730636633}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 522d1a20e7bd3914d9e2bf9b4969f265, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 100
+  currentHealth: 100
+  damage: 1
+  conditions: []
 --- !u!1001 &4215543178308310412
 PrefabInstance:
   m_ObjectHideFlags: 0

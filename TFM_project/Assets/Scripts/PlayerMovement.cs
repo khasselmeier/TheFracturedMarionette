@@ -23,6 +23,8 @@ public class PlayerMovement : MonoBehaviour
     private Transform pushTarget;
     private Vector3 moveInput;
 
+    private SFXManager sfxManager;
+
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
@@ -65,7 +67,7 @@ public class PlayerMovement : MonoBehaviour
 
         if (moveInput.magnitude >= moveThreshold)
         {
-            // Move relative to camera direction
+            //move relative to camera direction
             Vector3 camForward = Camera.main.transform.forward;
             Vector3 camRight = Camera.main.transform.right;
             camForward.y = 0f;
@@ -75,14 +77,17 @@ public class PlayerMovement : MonoBehaviour
 
             Vector3 moveDirection = camForward * moveInput.z + camRight * moveInput.x;
 
-            // Move player (no rotation)
+            //move player (no rotation)
             rb.MovePosition(rb.position + moveDirection * moveSpeed * Time.fixedDeltaTime);
 
-            // Animation control
+            //start walking animation and play footstep SFX
             if (!isWalking)
             {
                 animator.CrossFade(walkAnim, 0.1f);
                 isWalking = true;
+
+                if (sfxManager != null)
+                    sfxManager.PlayFootstep(); //play step sound
             }
         }
         else
@@ -128,7 +133,7 @@ public class PlayerMovement : MonoBehaviour
         isPushing = true;
         animator.Play(pushAnim);
 
-        //optional: apply small forward force to simulate push motion
+        //apply small forward force to simulate push motion
         if (pushTarget != null)
         {
             Rigidbody targetRb = pushTarget.GetComponent<Rigidbody>();
