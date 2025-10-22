@@ -1,0 +1,183 @@
+#include <Wire.h>
+#include "I2Cdev.h"
+#include "MPU6050_6Axis_MotionApps20.h"
+
+#define TCAADDR 0x70
+#define LED_PIN 8 
+
+// Function to select the I2C channel on the multiplexer
+void tcaSelect(uint8_t channel) {
+  if (channel > 7) return;
+  Wire.beginTransmission(TCAADDR);
+  Wire.write(1 << channel);
+  Wire.endTransmission();
+}
+
+// Create MPU6050 objects for each sensor
+MPU6050 mpu0;
+MPU6050 mpu1;
+MPU6050 mpu2;
+MPU6050 mpu3;
+
+bool dmpReady0 = false;
+bool dmpReady1 = false;
+bool dmpReady2 = false;
+bool dmpReady3 = false;
+
+uint8_t fifoBuffer0[64];
+uint8_t fifoBuffer1[64];
+uint8_t fifoBuffer2[64];
+uint8_t fifoBuffer3[64];
+
+Quaternion q0, q1, q2, q3;
+
+void setup() {
+  Serial.begin(115200);
+  Wire.begin();
+  Wire.setClock(100000);
+
+  // LED setup
+  pinMode(LED_PIN, OUTPUT);
+  digitalWrite(LED_PIN, LOW); // Default OFF
+
+  delay(1000);
+  Serial.println("Initializing 4 MPUs with DMP...\n");
+
+  Wire.beginTransmission(TCAADDR);
+  if (Wire.endTransmission() == 0) {
+    Serial.println("✅ TCA9548A multiplexer detected.");
+    digitalWrite(LED_PIN, HIGH);  // Turn LED ON
+  } else {
+    Serial.println("❌ TCA9548A multiplexer NOT found!");
+    // Blink LED rapidly to indicate error
+    while (true) {
+      digitalWrite(LED_PIN, HIGH);
+      delay(200);
+      digitalWrite(LED_PIN, LOW);
+      delay(200);
+    }
+  }
+
+  // MPU0
+  Serial.println("Initializing MPU0...");
+  tcaSelect(0);
+  mpu0.initialize();
+  Serial.println("MPU0 testConnection...");
+  Serial.println(mpu0.testConnection() ? "MPU0 OK" : "MPU0 FAIL");
+  Serial.println("MPU0 dmpInitialize...");
+  int devStatus0 = mpu0.dmpInitialize();
+  Serial.print("MPU0 dmpInitialize() status: "); Serial.println(devStatus0);
+  if (devStatus0 == 0) {
+    mpu0.setDMPEnabled(true);
+    mpu0.resetFIFO();
+    dmpReady0 = true;
+  }
+
+  // MPU1
+  Serial.println("Initializing MPU1...");
+  tcaSelect(1);
+  mpu1.initialize();
+  Serial.println("MPU1 testConnection...");
+  Serial.println(mpu1.testConnection() ? "MPU1 OK" : "MPU1 FAIL");
+  Serial.println("MPU1 dmpInitialize...");
+  int devStatus1 = mpu1.dmpInitialize();
+  Serial.print("MPU1 dmpInitialize() status: "); Serial.println(devStatus1);
+  if (devStatus1 == 0) {
+    mpu1.setDMPEnabled(true);
+    mpu1.resetFIFO();
+    dmpReady1 = true;
+  }
+
+  // MPU2
+  Serial.println("Initializing MPU2...");
+  tcaSelect(2);
+  mpu2.initialize();
+  Serial.println("MPU2 testConnection...");
+  Serial.println(mpu2.testConnection() ? "MPU2 OK" : "MPU2 FAIL");
+  Serial.println("MPU2 dmpInitialize...");
+  int devStatus2 = mpu2.dmpInitialize();
+  Serial.print("MPU2 dmpInitialize() status: "); Serial.println(devStatus2);
+  if (devStatus2 == 0) {
+    mpu2.setDMPEnabled(true);
+    mpu2.resetFIFO();
+    dmpReady2 = true;
+  }
+
+  // MPU3
+  Serial.println("Initializing MPU3...");
+  tcaSelect(3);
+  mpu3.initialize();
+  Serial.println("MPU3 testConnection...");
+  Serial.println(mpu3.testConnection() ? "MPU3 OK" : "MPU3 FAIL");
+  Serial.println("MPU3 dmpInitialize...");
+  int devStatus3 = mpu3.dmpInitialize();
+  Serial.print("MPU3 dmpInitialize() status: "); Serial.println(devStatus3);
+  if (devStatus3 == 0) {
+    mpu3.setDMPEnabled(true);
+    mpu3.resetFIFO();
+    dmpReady3 = true;
+  }
+
+  Serial.println("Setup complete.\n");
+}
+
+void loop() {
+    // --- Check if TCA is still responsive ---
+  Wire.beginTransmission(TCAADDR);
+  if (Wire.endTransmission() == 0) {
+    digitalWrite(LED_PIN, HIGH);  // TCA OK
+  } else {
+    digitalWrite(LED_PIN, LOW);   // TCA failed
+    Serial.println("⚠️ TCA9548A not responding!");
+    // Optional: blink LED or halt system
+  }
+  if (dmpReady0) {
+    tcaSelect(0);
+    if (mpu0.dmpGetCurrentFIFOPacket(fifoBuffer0)) {
+      mpu0.dmpGetQuaternion(&q0, fifoBuffer0);
+      Serial.print("MPU0: ");
+      Serial.print(q0.w, 6); Serial.print(", ");
+      Serial.print(q0.x, 6); Serial.print(", ");
+      Serial.print(q0.y, 6); Serial.print(", ");
+      Serial.println(q0.z, 6);
+    }
+  }
+
+  if (dmpReady1) {
+    tcaSelect(1);
+    if (mpu1.dmpGetCurrentFIFOPacket(fifoBuffer1)) {
+      mpu1.dmpGetQuaternion(&q1, fifoBuffer1);
+      Serial.print("MPU1: ");
+      Serial.print(q1.w, 6); Serial.print(", ");
+      Serial.print(q1.x, 6); Serial.print(", ");
+      Serial.print(q1.y, 6); Serial.print(", ");
+      Serial.println(q1.z, 6);
+    }
+  }
+
+  if (dmpReady2) {
+    tcaSelect(2);
+    if (mpu2.dmpGetCurrentFIFOPacket(fifoBuffer2)) {
+      mpu2.dmpGetQuaternion(&q2, fifoBuffer2);
+      Serial.print("MPU2: ");
+      Serial.print(q2.w, 6); Serial.print(", ");
+      Serial.print(q2.x, 6); Serial.print(", ");
+      Serial.print(q2.y, 6); Serial.print(", ");
+      Serial.println(q2.z, 6);
+    }
+  }
+
+  if (dmpReady3) {
+    tcaSelect(3);
+    if (mpu3.dmpGetCurrentFIFOPacket(fifoBuffer3)) {
+      mpu3.dmpGetQuaternion(&q3, fifoBuffer3);
+      Serial.print("MPU3: ");
+      Serial.print(q3.w, 6); Serial.print(", ");
+      Serial.print(q3.x, 6); Serial.print(", ");
+      Serial.print(q3.y, 6); Serial.print(", ");
+      Serial.println(q3.z, 6);
+    }
+  }
+
+  delay(20);
+}
