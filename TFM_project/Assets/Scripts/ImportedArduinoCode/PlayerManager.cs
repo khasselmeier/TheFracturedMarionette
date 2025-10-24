@@ -1,3 +1,4 @@
+/*
 using Unity.Burst.Intrinsics;
 using UnityEngine;
 
@@ -81,5 +82,5 @@ public class PlayerManager : MonoBehaviour
             //if arm remove can climb forever
         }
     }
-
 }
+*/

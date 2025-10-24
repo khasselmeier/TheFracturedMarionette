@@ -46,7 +46,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   footstepClips:
-  - {fileID: 8300000, guid: 2fef25a0158d3d642b9547d47514ff23, type: 3}
+  - {fileID: 8300000, guid: 4e0fe083f832cde4782edeab308f19c6, type: 3}
+  - {fileID: 8300000, guid: 22c4284b394d471419ee781de9a5b702, type: 3}
+  - {fileID: 8300000, guid: 0db1d1ca2143d6e4ca4a0bda88e01013, type: 3}
   footstepVolume: 0.8
   footstepDuration: 1
   randomSFXList:
