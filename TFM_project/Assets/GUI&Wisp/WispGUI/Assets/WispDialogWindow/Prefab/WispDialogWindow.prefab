@@ -29,11 +29,11 @@ RectTransform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 8054027952371736560}
   - {fileID: 7084090956574309979}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -70,6 +70,9 @@ MonoBehaviour:
   modal: 1
   destroyOnClose: 1
   enableBackgroundObstructor: 1
+  centerOnOpen: 1
+  useVisualTransition: 1
+  forceCursorVisibility: 1
 --- !u!222 &517591755015871826
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -113,6 +116,7 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
+    serializedVersion: 3
     m_TransformParent: {fileID: 517591755015871828}
     m_Modifications:
     - target: {fileID: 6557037707720655142, guid: 7ddaedeb388b13149bfab2d554ae2a66, type: 3}
@@ -208,6 +212,9 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 0}
     m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7ddaedeb388b13149bfab2d554ae2a66, type: 3}
 --- !u!224 &7084090956574309979 stripped
 RectTransform:
@@ -219,6 +226,7 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
+    serializedVersion: 3
     m_TransformParent: {fileID: 517591755015871828}
     m_Modifications:
     - target: {fileID: 6302048791707245444, guid: 90ecc66df75a5674b8da9c5ab9bc6b64, type: 3}
@@ -454,6 +462,9 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 2100000, guid: 0204845250d5dd247a6b6e8378cdcc17, type: 2}
     m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 90ecc66df75a5674b8da9c5ab9bc6b64, type: 3}
 --- !u!224 &8054027952371736560 stripped
 RectTransform:

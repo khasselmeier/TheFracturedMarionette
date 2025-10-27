@@ -29,9 +29,9 @@ RectTransform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 0}
@@ -65,6 +65,8 @@ MonoBehaviour:
     content: 
     delay: 0.25
     fadeDelay: 0.25
+  maxButtonWidth: 128
+  buttonMargin: 8
   buttonPrefab: {fileID: 3613512857817265412, guid: c1de50dfa716f784bb19e0798061200e, type: 3}
 --- !u!222 &6557037707720655141
 CanvasRenderer:
