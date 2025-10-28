@@ -1,14 +1,15 @@
-/*using System.Collections;
+using JetBrains.Rider.Unity.Editor;
+using System.Collections;
 using UnityEngine;
 
 public class GyroLimb : MonoBehaviour
 {
     [Header("Serial Manager")]
-    [Tooltip("Label matching the sensor in SerialManager (e.g. MPU0, MPU1)")]
+    [Tooltip("Matches label on Multiplexor")]
     public string sensorLabel = "MPU0";
 
     [Header("Rotation Calibration")]
-    [Tooltip("Adjust this to fix physical sensor alignment differences")]
+    [Tooltip("Fix physical sensor alignment differences - C key to callibrate")]
     public Quaternion rotationOffset = Quaternion.identity;
     private Quaternion calibrationOffset = Quaternion.identity;
     private bool isCalibrated = false;
@@ -17,16 +18,19 @@ public class GyroLimb : MonoBehaviour
     public float movementThreshold;
     public float maxSpeed = 3f;
     public bool isMoving = false;
-    public GameObject body;
-    public Vector3 moveAmtDir;
-    public int cooldownTime;
-    public bool onCooldown = false;
+    [SerializeField] private Vector3 moveAmtDir;
+    [SerializeField] private int cooldownTime;
+    [SerializeField] private bool onCooldown = false;
 
-    [Header("Legs")]
-    public float pitch;
-    public GameObject leftLeg;
-    public GameObject rightLeg;
-    public bool CanJump;
+    [Header("Limb Info")]
+    [Tooltip("Pitch affects degree range needed to move player")]
+    [SerializeField] private float pitch;
+    [SerializeField] private string limbType;
+    public GyroLimb otherLimb; 
+    public GameObject body;
+    [SerializeField] private Rigidbody rb;
+    public bool isAlive;
+    public bool isUp;
 
     [Header("Player")]
     public PlayerManager player;
@@ -60,14 +64,14 @@ public class GyroLimb : MonoBehaviour
                 // Apply rotation to the GameObject
                 transform.rotation = currentQuat;
 
-                // Calculate pitch based on quaternion for walking logic
-                // Here I assume pitch calculation from quaternion components (you can adjust as needed)
+                // Calculate pitch based on quaternion for degree of motion needed to move player
                 pitch = Mathf.Asin(2f * (currentQuat.w * currentQuat.x + currentQuat.y * currentQuat.z)) * Mathf.Rad2Deg;
             }
             else { Debug.Log(" Oop fetching no quat - Restart Arduino if cont error"); }
-        }
+        } 
 
-            HandleWalk();
+        HandleMoveUp();
+        HandleWalk();
     }
 
     public void HandleWalk()
@@ -79,9 +83,12 @@ public class GyroLimb : MonoBehaviour
 
         if (pitch >= movementThreshold && pitch <= movementThreshold + 10)
         {
-            body.GetComponent<Rigidbody>().transform.position += moveAmtDir;
+            isUp = true;
+            //rb.transform.position += moveAmtDir;
+            rb.MovePosition(rb.position + Vector3.forward * moveAmtDir.magnitude);
             onCooldown = true;
         }
+        else {  isUp = false; }
     }
 
     IEnumerator Cooldown()
@@ -89,17 +96,30 @@ public class GyroLimb : MonoBehaviour
         yield return new WaitForSeconds(cooldownTime);
         onCooldown = false;
     }
+    //if the other matching limb is still alive & both are in range then go up 
+    public void HandleMoveUp()
+    {
+        if (onCooldown)
+        {
+            StartCoroutine(Cooldown());
+        }
 
-    /// <summary>
-    /// Sets the current sensor rotation as the zero reference.
-    /// Call this to calibrate.
-    /// </summary>
+        if (otherLimb.isAlive && otherLimb.isUp)
+        {
+            if(limbType == "arm" && player.canClimb || limbType == "leg" && player.canJump)
+            {
+                rb.MovePosition(rb.position + Vector3.up * moveAmtDir.magnitude);
+                onCooldown = true;
+            }
+        }
+    }
+
+    // Sets the current sensor rotation as the zero reference.
     public void Calibrate()
     {
         // Invert the current raw quaternion to use as calibration offset
         calibrationOffset = Quaternion.Inverse(currentQuat);
         isCalibrated = true;
-        Debug.Log($"GyroLeg ({sensorLabel}) calibrated.");
+        Debug.Log($"GyroLimb ({sensorLabel}) calibrated.");
     }
 }
-*/

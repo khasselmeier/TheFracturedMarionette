@@ -1,4 +1,3 @@
-/*
 using Unity.Burst.Intrinsics;
 using UnityEngine;
 
@@ -8,24 +7,22 @@ public class PlayerManager : MonoBehaviour
     [SerializeField] private int _healthpoints = 100;
     [SerializeField] private bool isDead;
     [SerializeField] private int maxSpeed;
-    [SerializeField] private bool canClimb;
+    public bool canClimb;
+    public bool canJump;
     [SerializeField] private int maxLimbHealth;
+    [SerializeField] private int limbDamageAmt;
 
     [Header("Limb Health")]
     [SerializeField] private int[] LimbHealth;
-    // 0-3
-    //0 = left arm
-    //1 = right arm
-    //2 = left leg
-    //3 = right leg
+    [Tooltip("MPU0 = left arm\r\n MPU1 = right arm\r\n MPU2 = left leg\r\n MPU3 = right leg")]
+
     //check when taking damage what limb the enemy collides with else take damage on random limb, set the gyro component inactive and then detach limb from parent in hierarchy
 
-
     [Header("Limb OBJ")]
-    [SerializeField] private GyroArm LArm;
-    [SerializeField] private GyroArm RArm;
-    [SerializeField] private GyroLeg LLeg;
-    [SerializeField] private GyroLeg RLeg;
+    [SerializeField] private GyroLimb LArm;
+    [SerializeField] private GyroLimb RArm;
+    [SerializeField] private GyroLimb LLeg;
+    [SerializeField] private GyroLimb RLeg;
     public GameObject body;
     //bools checking limbs alive
 
@@ -33,10 +30,9 @@ public class PlayerManager : MonoBehaviour
     public void Start()
     {
         LimbHealth = new int[] { maxLimbHealth, maxLimbHealth, maxLimbHealth, maxLimbHealth };
-    ;
     }    
 
-    public void TakeHit(int limb, int damageAmt)
+    public void TakeHit(int limb)
     {
         Debug.Log("PlayerTaking hit");
         if(_healthpoints <= 0)
@@ -45,15 +41,16 @@ public class PlayerManager : MonoBehaviour
             Die();
         }
 
+        //take damage on limb
         //if limb is dead, detach from body
 
-        if(LimbHealth[limb] < 0)
+        if(LimbHealth[limb] <= 0)
         {
-            LimbHealth[limb] -= damageAmt;
+            LimbHealth[limb] -= limbDamageAmt;
+            _healthpoints -= 25; //take away from body health fourths for each limb
         }
-        else if(LimbHealth[limb] <= 0)
+        else
         {
-            _healthpoints -= 25;
             if (limb == 0) DetachLimb(LArm.gameObject, "arm");
             else if (limb == 1) DetachLimb(RArm.gameObject, "arm");
             else if (limb == 2) DetachLimb(LLeg.gameObject, "leg");
@@ -79,8 +76,15 @@ public class PlayerManager : MonoBehaviour
         if (limbType == "leg")
         {
             //decrease speed
-            //if arm remove can climb forever
+            maxSpeed -= 10;
+            canJump = false;
+            //if arm remove can climb
+        }
+        else if(limbType == "arm")
+        {
+            maxSpeed -= 10;
+            canClimb = false;
         }
     }
+
 }
-*/
