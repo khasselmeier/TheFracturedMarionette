@@ -82,8 +82,9 @@ public class PlayerMovement : MonoBehaviour
 
             //start walking animation and play footstep SFX
             if (!isWalking)
-            {
-                animator.CrossFade(walkAnim, 0.1f);
+            {   
+                animator.SetBool("isWalking", true);
+                //animator.CrossFade("WalkAnim, 0.1f);
                 isWalking = true;
 
                 if (sfxManager != null)
@@ -94,7 +95,8 @@ public class PlayerMovement : MonoBehaviour
         {
             if (isWalking)
             {
-                animator.CrossFade(idleAnim, 0.1f);
+                animator.SetBool("isWalking", false);
+                //animator.CrossFade("IdleAnim", 0.1f);
                 isWalking = false;
             }
         }
@@ -108,7 +110,7 @@ public class PlayerMovement : MonoBehaviour
         if (hitColliders.Length > 0)
         {
             pushTarget = hitColliders[0].transform;
-
+            //if colliding with push object trigger push anim
             //press and hold E to push
             if (Input.GetKey(KeyCode.E))
             {
