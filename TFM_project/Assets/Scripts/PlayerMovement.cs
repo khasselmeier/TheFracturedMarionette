@@ -110,7 +110,7 @@ public class PlayerMovement : MonoBehaviour
         if (hitColliders.Length > 0)
         {
             pushTarget = hitColliders[0].transform;
-
+            //if colliding with push object trigger push anim
             //press and hold E to push
             if (Input.GetKey(KeyCode.E))
             {
