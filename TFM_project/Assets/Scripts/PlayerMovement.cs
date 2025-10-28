@@ -82,8 +82,9 @@ public class PlayerMovement : MonoBehaviour
 
             //start walking animation and play footstep SFX
             if (!isWalking)
-            {
-                animator.CrossFade(walkAnim, 0.1f);
+            {   
+                animator.SetBool("isWalking", true);
+                //animator.CrossFade("WalkAnim, 0.1f);
                 isWalking = true;
 
                 if (sfxManager != null)
@@ -94,7 +95,8 @@ public class PlayerMovement : MonoBehaviour
         {
             if (isWalking)
             {
-                animator.CrossFade(idleAnim, 0.1f);
+                animator.SetBool("isWalking", false);
+                //animator.CrossFade("IdleAnim", 0.1f);
                 isWalking = false;
             }
         }
