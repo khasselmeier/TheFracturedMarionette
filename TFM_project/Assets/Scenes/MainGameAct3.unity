@@ -10049,10 +10049,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 304979624903022287, guid: 1c676598b099b4340968163729d8e7c6, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 2259856488030323979, guid: 1c676598b099b4340968163729d8e7c6, type: 3}
       propertyPath: m_LocalPosition.x
       value: -110.296
@@ -10093,49 +10089,9 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3701803717829342189, guid: 1c676598b099b4340968163729d8e7c6, type: 3}
-      propertyPath: m_Constraints
-      value: 112
-      objectReference: {fileID: 0}
-    - target: {fileID: 3815743330557197534, guid: 1c676598b099b4340968163729d8e7c6, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -0.039
-      objectReference: {fileID: 0}
-    - target: {fileID: 3815743330557197534, guid: 1c676598b099b4340968163729d8e7c6, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0.144
-      objectReference: {fileID: 0}
-    - target: {fileID: 3815743330557197534, guid: 1c676598b099b4340968163729d8e7c6, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0.373
-      objectReference: {fileID: 0}
     - target: {fileID: 3953921855730636633, guid: 1c676598b099b4340968163729d8e7c6, type: 3}
       propertyPath: m_Name
       value: Marionette
-      objectReference: {fileID: 0}
-    - target: {fileID: 3953921855730636633, guid: 1c676598b099b4340968163729d8e7c6, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4398371223262605927, guid: 1c676598b099b4340968163729d8e7c6, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4398371223262605927, guid: 1c676598b099b4340968163729d8e7c6, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7765880197832633672, guid: 1c676598b099b4340968163729d8e7c6, type: 3}
-      propertyPath: m_Controller
-      value: 
-      objectReference: {fileID: 9100000, guid: 5d1b55553e1cff14984c21b47a31b215, type: 2}
-    - target: {fileID: 7765880197832633672, guid: 1c676598b099b4340968163729d8e7c6, type: 3}
-      propertyPath: m_UpdateMode
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7765880197832633672, guid: 1c676598b099b4340968163729d8e7c6, type: 3}
-      propertyPath: m_ApplyRootMotion
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -13512,7 +13468,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!23 &6149436716407353614
 MeshRenderer:
   m_ObjectHideFlags: 0
