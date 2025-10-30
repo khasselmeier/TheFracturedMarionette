@@ -5,12 +5,15 @@ using System.Collections;
 public class CameraShake : MonoBehaviour
 {
     [Header("Shake Settings")]
-    public float shakeDuration = 3f;     //duration of each shake
-    public float shakeMagnitude = 0.1f;  //how strong the shake is
-    public float shakeInterval = 10f;    //time between shakes
+    public float shakeDuration = 3f;
+    public float shakeMagnitude = 0.1f;
+    public float shakeInterval = 10f;
 
     [Header("Audio Settings")]
     public AudioClip rumbleClip;
+    public float fadeInTime = 0.5f;
+    public float fadeOutTime = 0.5f;
+    public float maxVolume = 1f;
 
     private AudioSource audioSource;
     private Vector3 originalPos;
@@ -19,6 +22,7 @@ public class CameraShake : MonoBehaviour
     void Start()
     {
         audioSource = GetComponent<AudioSource>();
+        audioSource.loop = true;
         originalPos = transform.localPosition;
         StartCoroutine(ShakeRoutine());
     }
@@ -35,15 +39,18 @@ public class CameraShake : MonoBehaviour
     IEnumerator DoShake()
     {
         isShaking = true;
+
         if (rumbleClip)
         {
             audioSource.clip = rumbleClip;
-            audioSource.loop = true;
+            audioSource.volume = 0f;
             audioSource.Play();
+
+            // Fade in sound
+            yield return StartCoroutine(FadeAudio(0f, maxVolume, fadeInTime));
         }
 
         float elapsed = 0f;
-
         while (elapsed < shakeDuration)
         {
             Vector3 randomPoint = originalPos + Random.insideUnitSphere * shakeMagnitude;
@@ -53,9 +60,27 @@ public class CameraShake : MonoBehaviour
             yield return null;
         }
 
-        // Reset camera and stop sound
+        // Fade out sound
+        if (rumbleClip)
+        {
+            yield return StartCoroutine(FadeAudio(audioSource.volume, 0f, fadeOutTime));
+            audioSource.Stop();
+        }
+
         transform.localPosition = originalPos;
-        audioSource.Stop();
         isShaking = false;
+    }
+
+    IEnumerator FadeAudio(float startVolume, float endVolume, float duration)
+    {
+        float elapsed = 0f;
+        while (elapsed < duration)
+        {
+            elapsed += Time.deltaTime;
+            audioSource.volume = Mathf.Lerp(startVolume, endVolume, elapsed / duration);
+            yield return null;
+        }
+
+        audioSource.volume = endVolume;
     }
 }
