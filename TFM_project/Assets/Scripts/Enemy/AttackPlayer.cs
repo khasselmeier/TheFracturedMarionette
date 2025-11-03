@@ -4,20 +4,34 @@ using UnityEngine;
 
 public class AttackPlayer : MonoBehaviour
 {
-    PlayerManager player;
+    [SerializeField]
+    private PlayerStatusManager player;
+    [SerializeField]
     EnemyBehavior enemy;
-    public void Start()
+    bool isInRange;
+
+
+    public void Update()
     {
-        enemy = GetComponent<EnemyBehavior>();
-        player = GetComponent<PlayerManager>();
+        if (isInRange)
+        {
+            Attack();
+        }
     }
-
-
     public void OnTriggerEnter(Collider other)
     {
-            //enemy.isfollowplayer = false;
-            Debug.Log("attacking player");
-        if (other.gameObject.GetComponent<PlayerManager>() != null && enemy.canAttack)
+        //enemy.isfollowplayer = false;
+        Debug.Log("attacking player");
+        if(other.gameObject.CompareTag("Player")) isInRange = true;
+    }
+
+    public void OnCollisionExit(Collision collision)
+    {
+        isInRange = false;
+    }
+    public void Attack()
+    {
+        if (enemy.canAttack)
         {
             enemy.isPatroling = false;
             player.TakeHit(GetRandomLimb());
@@ -26,7 +40,8 @@ public class AttackPlayer : MonoBehaviour
     }
     public int GetRandomLimb()
     {
-        int limbID = Random.Range(0, 3);
+        int limbID = Random.Range(0, 4);
+        Debug.Log(limbID);
         return limbID;
     }
 }
