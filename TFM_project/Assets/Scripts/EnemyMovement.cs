@@ -52,10 +52,10 @@ public class EnemyMovement : MonoBehaviour
         }
 
         //attack if close enough
-        if (isChasing && distance <= attackRange && Time.time - lastAttackTime > attackCooldown)
+        if (isChasing && distance <= attackRange && Time.time - lastAttackTime > attackCooldown && !isAttacking)
         {
             StartCoroutine(AttackPlayer());
-            isAttacking = true;
+            isAttacking = false;
         }
     }
 
@@ -63,14 +63,17 @@ public class EnemyMovement : MonoBehaviour
     {
         agent.isStopped = true;
         animator.SetTrigger("Attack");
-
+        isAttacking = true;
         //attack delay to sync with animation
         yield return new WaitForSeconds(1f);
 
         lastAttackTime = Time.time;
         agent.isStopped = false;
-        isAttacking = false;
-        PlayerStatus.Instance.TakeDamage(attackDamage);
+
+
+        int randomLimb = Random.Range(0, 3);
+        Debug.Log(randomLimb + " being attacked");
+        player.gameObject.GetComponent<PlayerStatusManager>().TakeHit(randomLimb);
     }
 
     /*

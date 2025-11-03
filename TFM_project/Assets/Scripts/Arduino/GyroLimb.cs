@@ -22,18 +22,21 @@ public class GyroLimb : MonoBehaviour
     [SerializeField] private int cooldownTime;
     [SerializeField] private bool onCooldown = false;
 
-    [Header("Limb Info")]
+    [Header("Limb Movement Info")]
     [Tooltip("Pitch affects degree range needed to move player")]
     [SerializeField] private float pitch;
     [SerializeField] private string limbType;
+
+    public bool isUp;
+    
+    [Header("Limb Health Info")]
+    public bool isAlive;
+
+    [Header("References")]
+    public PlayerStatusManager player;
     public GyroLimb otherLimb; 
     public GameObject body;
     [SerializeField] private Rigidbody rb;
-    public bool isAlive;
-    public bool isUp;
-
-    [Header("Player")]
-    public PlayerManager player;
 
     private Quaternion currentQuat = Quaternion.identity;
 
@@ -68,10 +71,12 @@ public class GyroLimb : MonoBehaviour
                 pitch = Mathf.Asin(2f * (currentQuat.w * currentQuat.x + currentQuat.y * currentQuat.z)) * Mathf.Rad2Deg;
             }
             else { Debug.Log(" Oop fetching no quat - Restart Arduino if cont error"); }
-        } 
-
-        HandleMoveUp();
-        HandleWalk();
+        }
+        if (isAlive)
+        {
+            HandleMoveUp();
+            HandleWalk();
+        }
     }
 
     public void HandleWalk()
