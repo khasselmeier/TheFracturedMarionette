@@ -3,6 +3,8 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
+    public MasterUIManager MasterUIManager;
+
     void Awake()
     {
         if (instance == null)
@@ -15,4 +17,6 @@ public class GameManager : MonoBehaviour
             Destroy(this.gameObject);
         }
     }
+
+    
 }

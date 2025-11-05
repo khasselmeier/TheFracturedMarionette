@@ -48,7 +48,45 @@ public class GyroLimb : MonoBehaviour
         }
         //Calibrate();
     }
+    void FixedUpdate()
+    {
+        if (Input.GetKeyDown(KeyCode.C))
+        {
+            Calibrate();
+        }
 
+        if (GyroParse.Instance != null)
+        {
+            if (GyroParse.Instance.TryGetQuaternion(sensorLabel, out Quaternion rawQuat))
+            {
+                // Apply calibration and rotation offset
+                Quaternion calibratedQuat = isCalibrated ? calibrationOffset * rawQuat : rawQuat;
+                currentQuat = calibratedQuat * rotationOffset;
+
+                // Extract the z-axis rotation from the currentQuat
+                float gyroZ = currentQuat.eulerAngles.z;
+
+                // Combine the current x rotation with the existing y and z rotation
+                Vector3 currentEulerAngles = transform.rotation.eulerAngles;
+                transform.rotation = Quaternion.Euler(currentEulerAngles.x, currentEulerAngles.y, gyroZ);
+
+                // Calculate pitch based on quaternion for degree of motion needed to move player
+                pitch = Mathf.Asin(2f * (currentQuat.w * currentQuat.x + currentQuat.y * currentQuat.z)) * Mathf.Rad2Deg;
+            }
+            else
+            {
+                Debug.Log("Oop fetching no quat - Restart Arduino if continue error");
+            }
+        }
+
+        if (isAlive)
+        {
+            HandleMoveUp();
+            HandleWalk();
+        }
+    }
+
+    /*
     void FixedUpdate()
     {
         if (Input.GetKeyDown(KeyCode.C))
@@ -65,7 +103,7 @@ public class GyroLimb : MonoBehaviour
                 currentQuat = calibratedQuat * rotationOffset;
 
                 // Apply rotation to the GameObject
-                transform.rotation = currentQuat;
+                transform.rotation.x = currentQuat.x;
 
                 // Calculate pitch based on quaternion for degree of motion needed to move player
                 pitch = Mathf.Asin(2f * (currentQuat.w * currentQuat.x + currentQuat.y * currentQuat.z)) * Mathf.Rad2Deg;
@@ -78,7 +116,7 @@ public class GyroLimb : MonoBehaviour
             HandleWalk();
         }
     }
-
+    */
     public void HandleWalk()
     {
         if (onCooldown)
