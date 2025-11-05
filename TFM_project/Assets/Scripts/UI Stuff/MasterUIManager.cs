@@ -10,18 +10,11 @@ public class MasterUIManager : MonoBehaviour
     public GameObject mainMenuUI;
     public GameObject howToPlayUI;
     public GameObject returnButton;
-    public GameObject restartButton;
 
     //called when the Play button is pressed
     public void PlayGame()
     {
         SceneManager.LoadScene("MainGameAct1");
-    }
-
-    //called when the Restart button is pressed
-    public void RestartToMainMenu()
-    {
-        SceneManager.LoadScene("MainMenu");
     }
 
     //called when the Quit button is pressed

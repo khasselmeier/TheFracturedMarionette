@@ -176,7 +176,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Total Time Survived: *Time Here*'
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 92185f73444746641bb7745e873afc2b, type: 2}
   m_sharedMaterial: {fileID: 7894766872679426207, guid: 92185f73444746641bb7745e873afc2b, type: 2}
@@ -212,7 +212,7 @@ MonoBehaviour:
   m_fontSizeMax: 72
   m_fontStyle: 0
   m_HorizontalAlignment: 1
-  m_VerticalAlignment: 1024
+  m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
   m_wordSpacing: 0
@@ -678,8 +678,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 25
-  m_fontSizeBase: 25
+  m_fontSize: 20
+  m_fontSizeBase: 20
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -896,9 +896,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2224396907297896598}
-        m_TargetAssemblyTypeName: MasterUIManager, Assembly-CSharp
-        m_MethodName: RestartToMainMenu
+      - m_Target: {fileID: 5173482484912130764}
+        m_TargetAssemblyTypeName: EndScreenUI, Assembly-CSharp
+        m_MethodName: RestartGame
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -908,22 +908,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &2224396907297896598
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5173482484912130761}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 41cd18d9aa359044691856aa1c600c5b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  mainMenuUI: {fileID: 0}
-  howToPlayUI: {fileID: 0}
-  returnButton: {fileID: 0}
-  restartButton: {fileID: 5795443315378554493}
 --- !u!114 &2694782739165388482
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1049,9 +1033,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2837072021859381732}
-  - component: {fileID: 2224396907297896598}
   - component: {fileID: 5173482484912130763}
   - component: {fileID: 5173482484912130762}
+  - component: {fileID: 5173482484912130764}
   m_Layer: 0
   m_Name: _UIManager
   m_TagString: Untagged
@@ -1094,6 +1078,20 @@ MonoBehaviour:
   delayBeforeFadeOut: 3
   delayBeforeFadeIn: 3
   initialDelay: 1.5
+--- !u!114 &5173482484912130764
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5173482484912130761}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 41b99c93d6837364daac36ed4700e915, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  totalTimeText: {fileID: 478221428}
+  mainMenuSceneName: MainMenu
 --- !u!114 &5304824095175513301
 MonoBehaviour:
   m_ObjectHideFlags: 0
