@@ -2655,33 +2655,9 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 373963456815557627, guid: 32829612fe3955b49b6f4d34bc890b25, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 526879750500541940, guid: 32829612fe3955b49b6f4d34bc890b25, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -114.566
-      objectReference: {fileID: 0}
-    - target: {fileID: 3564740608472652014, guid: 32829612fe3955b49b6f4d34bc890b25, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -120.543
-      objectReference: {fileID: 0}
-    - target: {fileID: 4621101904363815381, guid: 32829612fe3955b49b6f4d34bc890b25, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 4701819862575435596, guid: 32829612fe3955b49b6f4d34bc890b25, type: 3}
       propertyPath: m_Name
       value: Lights
-      objectReference: {fileID: 0}
-    - target: {fileID: 4860489106346526988, guid: 32829612fe3955b49b6f4d34bc890b25, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -119.083
-      objectReference: {fileID: 0}
-    - target: {fileID: 7201695797659930320, guid: 32829612fe3955b49b6f4d34bc890b25, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -117.563995
       objectReference: {fileID: 0}
     - target: {fileID: 7790018886851877318, guid: 32829612fe3955b49b6f4d34bc890b25, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2722,26 +2698,6 @@ PrefabInstance:
     - target: {fileID: 7790018886851877318, guid: 32829612fe3955b49b6f4d34bc890b25, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8118372067699423228, guid: 32829612fe3955b49b6f4d34bc890b25, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -121.616
-      objectReference: {fileID: 0}
-    - target: {fileID: 8135225734233231071, guid: 32829612fe3955b49b6f4d34bc890b25, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -116.135
-      objectReference: {fileID: 0}
-    - target: {fileID: 8151531581249638725, guid: 32829612fe3955b49b6f4d34bc890b25, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -117.252
-      objectReference: {fileID: 0}
-    - target: {fileID: 8413875111323879615, guid: 32829612fe3955b49b6f4d34bc890b25, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -113.337
-      objectReference: {fileID: 0}
-    - target: {fileID: 8750961033000182704, guid: 32829612fe3955b49b6f4d34bc890b25, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -121.432
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -3214,7 +3170,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animatedTextReveal: {fileID: 637296728}
   lines:
-  - "\u201COnce, upon a stage of velvet and dust, a marionette opened its eyes\u2026\u201D"
+  - '"Decades after the last curtain call, a marionette opened her eyes. She gazed
+    upon the crumbling theatre with a part to play: the girl who searched for heaven."  '
   fadeMode: 0
   fadeLastLine: 0
   delayBeforeFadeOut: 1
@@ -3233,7 +3190,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   textMesh: {fileID: 2773749102137940559}
-  fadeSpeed: 20
+  fadeSpeed: 22
   characterSpread: 10
 --- !u!114 &637296731
 MonoBehaviour:
@@ -3253,9 +3210,9 @@ MonoBehaviour:
   GameUICanvas: {fileID: 1537711820}
   fadeDurationBG: 4.5
   fadeDurationBG2: 4.5
-  fadeDurationText: 1.75
-  delayBeforeFade: 5
-  gameUIFadeDuration: 3
+  fadeDurationText: 2.5
+  delayBeforeFade: 10
+  gameUIFadeDuration: 4
 --- !u!1 &654820542
 GameObject:
   m_ObjectHideFlags: 0
@@ -9771,7 +9728,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &2092094893
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9806,7 +9763,7 @@ Light:
   serializedVersion: 11
   m_Type: 1
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 2
+  m_Intensity: 0.5
   m_Range: 10
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
