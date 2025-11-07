@@ -10,9 +10,12 @@ public class GyroLimb : MonoBehaviour
 
     [Header("Rotation Calibration")]
     [Tooltip("Fix physical sensor alignment differences - C key to callibrate")]
-    public Quaternion rotationOffset = Quaternion.identity;
+    private Quaternion rotationOffset = Quaternion.identity;
     private Quaternion calibrationOffset = Quaternion.identity;
     private bool isCalibrated = false;
+    public float x;
+    public float y;
+    public float z;
 
     [Header("Move Param")]
     public float movementThreshold;
@@ -46,7 +49,7 @@ public class GyroLimb : MonoBehaviour
         {
             Debug.LogError("SerialManager instance not found! Make sure SerialManager is in the scene.");
         }
-        //rotationOffset = Quaternion.Euler(90, 0, 0); set on type of limb based on how we orient the gyro on the doll
+        rotationOffset = Quaternion.Euler(x, y, z); //set on type of limb based on how we orient the gyro on the doll
         //Calibrate();
     }
     void LateUpdate()

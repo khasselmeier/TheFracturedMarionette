@@ -585,8 +585,68 @@ PrefabInstance:
       value: MPU3
       objectReference: {fileID: 0}
     - target: {fileID: 6108060803430308047, guid: 6f67a1229a40aef4cbbf280e092ed6d8, type: 3}
+      propertyPath: x
+      value: 180
+      objectReference: {fileID: 0}
+    - target: {fileID: 6108060803430308047, guid: 6f67a1229a40aef4cbbf280e092ed6d8, type: 3}
       propertyPath: sensorLabel
       value: MPU2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6108060803430308047, guid: 6f67a1229a40aef4cbbf280e092ed6d8, type: 3}
+      propertyPath: rotationOffset.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6108060803430308047, guid: 6f67a1229a40aef4cbbf280e092ed6d8, type: 3}
+      propertyPath: rotationOffset.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6108060803430308047, guid: 6f67a1229a40aef4cbbf280e092ed6d8, type: 3}
+      propertyPath: rotationOffset.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6108060803430308047, guid: 6f67a1229a40aef4cbbf280e092ed6d8, type: 3}
+      propertyPath: rotationOffset.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6274200210578531369, guid: 6f67a1229a40aef4cbbf280e092ed6d8, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.0072161537
+      objectReference: {fileID: 0}
+    - target: {fileID: 6274200210578531369, guid: 6f67a1229a40aef4cbbf280e092ed6d8, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.0013809577
+      objectReference: {fileID: 0}
+    - target: {fileID: 6274200210578531369, guid: 6f67a1229a40aef4cbbf280e092ed6d8, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.008337773
+      objectReference: {fileID: 0}
+    - target: {fileID: 6274200210578531369, guid: 6f67a1229a40aef4cbbf280e092ed6d8, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: -0.9990523
+      objectReference: {fileID: 0}
+    - target: {fileID: 6274200210578531369, guid: 6f67a1229a40aef4cbbf280e092ed6d8, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.042694677
+      objectReference: {fileID: 0}
+    - target: {fileID: 6274200210578531369, guid: 6f67a1229a40aef4cbbf280e092ed6d8, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.000063508734
+      objectReference: {fileID: 0}
+    - target: {fileID: 6274200210578531369, guid: 6f67a1229a40aef4cbbf280e092ed6d8, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0.008473931
+      objectReference: {fileID: 0}
+    - target: {fileID: 6274200210578531369, guid: 6f67a1229a40aef4cbbf280e092ed6d8, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: -184.894
+      objectReference: {fileID: 0}
+    - target: {fileID: 6274200210578531369, guid: 6f67a1229a40aef4cbbf280e092ed6d8, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 180.049
+      objectReference: {fileID: 0}
+    - target: {fileID: 6274200210578531369, guid: 6f67a1229a40aef4cbbf280e092ed6d8, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: -179.026
       objectReference: {fileID: 0}
     - target: {fileID: 6345142811629823119, guid: 6f67a1229a40aef4cbbf280e092ed6d8, type: 3}
       propertyPath: sensorLabel
@@ -594,7 +654,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8050476776695718771, guid: 6f67a1229a40aef4cbbf280e092ed6d8, type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8050476776695718771, guid: 6f67a1229a40aef4cbbf280e092ed6d8, type: 3}
       propertyPath: m_UpdateMode
