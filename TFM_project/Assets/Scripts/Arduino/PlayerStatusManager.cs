@@ -23,13 +23,25 @@ public class PlayerStatusManager : MonoBehaviour
     [SerializeField] private GyroLimb RLeg;
     public GameObject body;
 
+    [Header("UI and Audio")]
     private SFXManager sfxManager;
+
+
+    [SerializeField] private LimbHealthUI[] UIlimbIndicators;
+    [Tooltip("MPU0 = left arm\r\n MPU1 = right arm\r\n MPU2 = left leg\r\n MPU3 = right leg")]
 
     public void Start()
     {
         LimbHealth = new int[] { maxLimbHealth, maxLimbHealth, maxLimbHealth, maxLimbHealth };
-    }    
+    }
 
+    public void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.P))
+        {
+            TakeHit(Random.Range(0, 4));
+        }
+    }
     public void TakeHit(int limb)
     {
         Debug.Log("Player Taking hit");
@@ -45,9 +57,11 @@ public class PlayerStatusManager : MonoBehaviour
         if(LimbHealth[limb] == 20)
         {
             LimbHealth[limb] -= limbDamageAmt;
+            UIlimbIndicators[limb].ChangeUI();
         }
         else if (LimbHealth[limb] == 10)
         {
+            UIlimbIndicators[limb].ChangeUI();
             LimbHealth[limb] -= limbDamageAmt;
             if (limb == 0) DetachLimb(LArm, "arm");
             else if (limb == 1) DetachLimb(RArm, "arm");
@@ -55,6 +69,8 @@ public class PlayerStatusManager : MonoBehaviour
             else if (limb == 3) DetachLimb(RLeg, "leg");
         }
     }
+
+
 
     private void Die()
     {
