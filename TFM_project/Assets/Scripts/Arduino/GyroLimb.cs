@@ -75,6 +75,9 @@ public class GyroLimb : MonoBehaviour
 
             // Apply rotation to this limb (local so it’s relative to the body)
             transform.localRotation = currentQuat;
+
+            // Calculate pitch based on quaternion for degree of motion needed to move player
+            pitch = Mathf.Asin(2f * (currentQuat.w * currentQuat.x + currentQuat.y * currentQuat.z)) * Mathf.Rad2Deg;
         }
         if (isAlive)
         {

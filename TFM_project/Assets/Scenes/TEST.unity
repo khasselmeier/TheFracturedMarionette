@@ -593,6 +593,10 @@ PrefabInstance:
       value: MPU2
       objectReference: {fileID: 0}
     - target: {fileID: 6108060803430308047, guid: 6f67a1229a40aef4cbbf280e092ed6d8, type: 3}
+      propertyPath: cooldownTime
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6108060803430308047, guid: 6f67a1229a40aef4cbbf280e092ed6d8, type: 3}
       propertyPath: rotationOffset.w
       value: 1
       objectReference: {fileID: 0}
