@@ -46,39 +46,33 @@ public class GyroLimb : MonoBehaviour
         {
             Debug.LogError("SerialManager instance not found! Make sure SerialManager is in the scene.");
         }
+        //rotationOffset = Quaternion.Euler(90, 0, 0); set on type of limb based on how we orient the gyro on the doll
         //Calibrate();
     }
-    void FixedUpdate()
+    void LateUpdate()
     {
-        if (Input.GetKeyDown(KeyCode.C))
+        if (GyroParse.Instance == null) return;
+
+        if (GyroParse.Instance.TryGetQuaternion(sensorLabel, out Quaternion rawQuat))
         {
-            Calibrate();
-        }
+            // Convert and store
+            Quaternion calibratedQuat;
 
-        if (GyroParse.Instance != null)
-        {
-            if (GyroParse.Instance.TryGetQuaternion(sensorLabel, out Quaternion rawQuat))
+            if (!isCalibrated)
             {
-                // Apply calibration and rotation offset
-                Quaternion calibratedQuat = isCalibrated ? calibrationOffset * rawQuat : rawQuat;
-                currentQuat = calibratedQuat * rotationOffset;
-
-                // Extract the z-axis rotation from the currentQuat
-                float gyroZ = currentQuat.eulerAngles.z;
-
-                // Combine the current x rotation with the existing y and z rotation
-                Vector3 currentEulerAngles = transform.rotation.eulerAngles;
-                transform.rotation = Quaternion.Euler(currentEulerAngles.x, currentEulerAngles.y, gyroZ);
-
-                // Calculate pitch based on quaternion for degree of motion needed to move player
-                pitch = Mathf.Asin(2f * (currentQuat.w * currentQuat.x + currentQuat.y * currentQuat.z)) * Mathf.Rad2Deg;
+                // First valid reading: set this as zero reference
+                calibrationOffset = Quaternion.Inverse(rawQuat);
+                isCalibrated = true;
+                Debug.Log($"{sensorLabel} auto-calibrated at startup");
             }
-            else
-            {
-                Debug.Log("Oop fetching no quat - Restart Arduino if continue error");
-            }
+
+            // Apply calibration + rotation offset
+            calibratedQuat = calibrationOffset * rawQuat;
+            currentQuat = calibratedQuat * rotationOffset;
+
+            // Apply rotation to this limb (local so it’s relative to the body)
+            transform.localRotation = currentQuat;
         }
-
         if (isAlive)
         {
             HandleMoveUp();
@@ -86,12 +80,18 @@ public class GyroLimb : MonoBehaviour
         }
     }
 
+
     /*
     void FixedUpdate()
     {
         if (Input.GetKeyDown(KeyCode.C))
         {
-            Calibrate();
+            if (GyroParse.Instance.TryGetQuaternion(sensorLabel, out currentQuat)){
+
+                Calibrate();
+            }else{
+                Debug.LogWarning("No data yet—move sensor to initialize before calibrating.");
+            }
         }
 
         if (GyroParse.Instance != null)

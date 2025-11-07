@@ -82,8 +82,9 @@ public class GyroParse : MonoBehaviour
             float.TryParse(values[2], out float y) &&
             float.TryParse(values[3], out float z))
         {
-            // Store quaternion (Unity uses x,y,z,w order)
-            quatMap[label] = new Quaternion(x, y, z, w);
+            // Convert from MPU6050 right-handed Y-forward, Z-up to Unity left-handed Y-up, Z-forward
+            quatMap[label] = new Quaternion(x, z, -y, w);
+
         }
     }
 
