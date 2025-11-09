@@ -6,10 +6,10 @@ using TMPro;
 public class ImageFadeOut : MonoBehaviour
 {
     [Header("Fade Settings")]
-    public Image targetImageBG;        // Assign UI Image
-    public RawImage targetImageBG2;    // Assign UI Image
-    public TextMeshProUGUI targetText; // Assign UI text 
-    public Canvas GameUICanvas;        // Assign In-Game UI Canvas
+    public Image targetImageBG;
+    public RawImage targetImageBG2;
+    public TextMeshProUGUI targetText;
+    public Canvas GameUICanvas;
 
     [Header("Timing")]
     public float fadeDurationBG = 3f;
@@ -18,8 +18,8 @@ public class ImageFadeOut : MonoBehaviour
     public float delayBeforeFade = 10f;
     public float gameUIFadeDuration = 3f;
 
-    private Canvas parentCanvas; // Intro canvas
-    private CanvasGroup gameUICanvasGroup; // Controls Game UI fade
+    private Canvas parentCanvas; //intro canvas
+    private CanvasGroup gameUICanvasGroup; //controls Game UI fade
 
     private void Start()
     {
@@ -34,7 +34,7 @@ public class ImageFadeOut : MonoBehaviour
         }
 
         gameUICanvasGroup.alpha = 0f;
-        GameUICanvas.gameObject.SetActive(true); // Must be active for fading
+        GameUICanvas.gameObject.SetActive(true);
 
         StartCoroutine(FadeOutRoutine());
     }
@@ -68,8 +68,8 @@ public class ImageFadeOut : MonoBehaviour
         //disable the parent canvas after fade
         if (parentCanvas != null)
             parentCanvas.gameObject.SetActive(false);
-        else
-            Debug.LogWarning("No Canvas found to disable");
+        /*else
+            Debug.LogWarning("No Canvas found to disable");*/
     }
 
     private IEnumerator FadeInGameUI()

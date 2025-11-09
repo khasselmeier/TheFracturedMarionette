@@ -4,7 +4,7 @@ namespace Ursaanimation.CubicFarmAnimals
 {
     public class AnimationController : MonoBehaviour
     {
-        public Animator animator;
+        /*public Animator animator;
         public string walkForwardAnimation = "walk_forward";
         public string walkBackwardAnimation = "walk_backwards";
         public string runForwardAnimation = "run_forward";
@@ -53,6 +53,6 @@ namespace Ursaanimation.CubicFarmAnimals
             {
                 animator.Play(standtositAnimation);
             }
-        }
+        }*/
     }
 }

@@ -55,7 +55,7 @@ public class RandomObjectSpawner : MonoBehaviour
 
         // Spawn the object
         Instantiate(prefab, spawnPos, Quaternion.identity);
-        Debug.Log($"[RandomObjectSpawner] Spawned: {prefab.name} at {spawnPos}");
+        //Debug.Log($"[RandomObjectSpawner] Spawned: {prefab.name} at {spawnPos}");
     }
 
     private void OnDrawGizmosSelected()

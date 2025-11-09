@@ -50,7 +50,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 22c4284b394d471419ee781de9a5b702, type: 3}
   - {fileID: 8300000, guid: 0db1d1ca2143d6e4ca4a0bda88e01013, type: 3}
   footstepVolume: 0.8
-  footstepDuration: 1
+  footstepDuration: 0.2
   randomSFXList:
   - {fileID: 8300000, guid: fa704ee89ceab4a45bbe1c04b3118c81, type: 3}
   - {fileID: 8300000, guid: 7b57d06cdad4ff94ba3fefd1c0b381c0, type: 3}

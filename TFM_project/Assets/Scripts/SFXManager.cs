@@ -8,7 +8,7 @@ public class SFXManager : MonoBehaviour
     [Header("Footstep Settings")]
     public AudioClip[] footstepClips;       //assign a few footstep clips
     public float footstepVolume = 0.8f;
-    public float footstepDuration = 1f;     //duration each step sound plays
+    public float footstepDuration = .2f;     //duration each step sound plays
 
     [Header("Random SFX Settings")]
     public List<AudioClip> randomSFXList;
@@ -90,14 +90,14 @@ public class SFXManager : MonoBehaviour
                 tempSource.volume = randomSFXVolume;
                 tempSource.Play();
 
-                Debug.Log($"[SFXManager] Random SFX playing: {clip.name} (max {maxRandomClipDuration}s)");
+                //Debug.Log($"[SFXManager] Random SFX playing: {clip.name} (max {maxRandomClipDuration}s)");
 
                 //wait for either the clip to finish or 15 seconds, whichever comes first
                 yield return new WaitForSeconds(Mathf.Min(clip.length, maxRandomClipDuration));
 
                 tempSource.Stop();
                 Destroy(tempSource);
-                Debug.Log($"[SFXManager] Random SFX stopped: {clip.name}");
+                //Debug.Log($"[SFXManager] Random SFX stopped: {clip.name}");
             }
         }
     }

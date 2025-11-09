@@ -16,6 +16,7 @@ public class PlayerMovement : MonoBehaviour
 
     [Header("Push Settings")]
     public LayerMask pushableLayer;
+    public float pushVel = 4f;
 
     private Rigidbody rb;
     private bool isPushing = false;
@@ -29,9 +30,6 @@ public class PlayerMovement : MonoBehaviour
     {
         rb = GetComponent<Rigidbody>();
         rb.freezeRotation = true; //prevent player from rotating physically
-
-        if (animator == null)
-            Debug.LogWarning("No Animator assigned to PlayerMovement");
     }
 
     private void Update()
@@ -52,7 +50,7 @@ public class PlayerMovement : MonoBehaviour
         float moveX = 0f;
         float moveZ = 0f;
 
-        // Simple WASD controls
+        //WASD controls
         if (Input.GetKey(KeyCode.W)) moveZ = 1f;
         if (Input.GetKey(KeyCode.S)) moveZ = -1f;
         if (Input.GetKey(KeyCode.A)) moveX = -1f;
@@ -142,7 +140,7 @@ public class PlayerMovement : MonoBehaviour
             if (targetRb != null)
             {
                 Vector3 pushDir = (pushTarget.position - transform.position).normalized;
-                targetRb.AddForce(pushDir * 5f, ForceMode.Impulse);
+                targetRb.AddForce(pushDir * pushVel, ForceMode.Impulse);
             }
         }
     }
