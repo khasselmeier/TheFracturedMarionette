@@ -4,18 +4,30 @@ using System.Collections;
 public class RandomObjectSpawner : MonoBehaviour
 {
     [Header("Spawn Settings")]
-    public GameObject[] objectsToSpawn;  // Array of prefabs to spawn
-    public Transform spawnPoint;         // Optional specific spawn location
-    public float minSpawnInterval = 2f;  // Minimum time between spawns
-    public float maxSpawnInterval = 8f;  // Maximum time between spawns
+    public GameObject[] objectsToSpawn;
+    public Transform spawnPoint;
+    public float minSpawnInterval = 2f;
+    public float maxSpawnInterval = 8f;
 
     [Header("Spawn Options")]
-    public bool randomizePosition = false;  // Random position within range?
-    public Vector3 spawnArea = new Vector3(3f, 0f, 3f); // XZ area around spawner
+    public bool randomizePosition = false;  //random position within range
+    public Vector3 spawnArea = new Vector3(3f, 0f, 3f); //XZ area around spawner
+
+    [Header("Hierarchy Organization")]
+    public string parentName = "ObjSpawned";  //name of the parent object
+    private Transform parentContainer;
 
     private void Start()
     {
-        // Start the random spawn loop
+        //find or create the parent container
+        GameObject parentObj = GameObject.Find(parentName);
+        if (parentObj == null)
+        {
+            parentObj = new GameObject(parentName);
+        }
+        parentContainer = parentObj.transform;
+
+        //start the random spawn loop
         StartCoroutine(SpawnRoutine());
     }
 
@@ -23,7 +35,7 @@ public class RandomObjectSpawner : MonoBehaviour
     {
         while (true)
         {
-            // Wait a random amount of time between 2–8 seconds
+            //wait a random amount of time between 2–8 seconds
             float waitTime = Random.Range(minSpawnInterval, maxSpawnInterval);
             yield return new WaitForSeconds(waitTime);
 
@@ -38,10 +50,10 @@ public class RandomObjectSpawner : MonoBehaviour
             return;
         }
 
-        // Choose a random prefab
+        //choose a random prefab
         GameObject prefab = objectsToSpawn[Random.Range(0, objectsToSpawn.Length)];
 
-        // Determine spawn position
+        //determine spawn position
         Vector3 spawnPos = spawnPoint != null ? spawnPoint.position : transform.position;
 
         if (randomizePosition)
@@ -53,9 +65,12 @@ public class RandomObjectSpawner : MonoBehaviour
             );
         }
 
-        // Spawn the object
-        Instantiate(prefab, spawnPos, Quaternion.identity);
-        //Debug.Log($"[RandomObjectSpawner] Spawned: {prefab.name} at {spawnPos}");
+        //spawn the object
+        //Instantiate(prefab, spawnPos, Quaternion.identity);
+
+        //spawn the object and parent it under the container
+        GameObject spawnedObj = Instantiate(prefab, spawnPos, Quaternion.identity);
+        spawnedObj.transform.SetParent(parentContainer);
     }
 
     private void OnDrawGizmosSelected()

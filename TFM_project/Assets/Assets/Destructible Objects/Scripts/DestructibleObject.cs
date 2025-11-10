@@ -123,6 +123,14 @@ public class DestructibleObject : MonoBehaviour
                 debris = Instantiate(debrisPrefabs[0].prefab, transform.position, Quaternion.identity);
                 break;
         }
+
+        GameObject container = GameObject.Find("ObjSpawned");
+        if (container != null)
+        {
+            debris.transform.SetParent(container.transform);
+        }
+
+        // Then disable debris until needed
         debris.SetActive(false);
     }
 

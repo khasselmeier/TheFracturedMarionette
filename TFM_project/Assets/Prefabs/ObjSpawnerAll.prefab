@@ -58,6 +58,7 @@ MonoBehaviour:
   maxSpawnInterval: 15
   randomizePosition: 1
   spawnArea: {x: 0.2, y: 0, z: 1}
+  parentName: ObjSpawned
 --- !u!1 &4073275187678497409
 GameObject:
   m_ObjectHideFlags: 0
@@ -116,6 +117,7 @@ MonoBehaviour:
   maxSpawnInterval: 15
   randomizePosition: 1
   spawnArea: {x: 0.2, y: 0, z: 0.5}
+  parentName: ObjSpawned
 --- !u!1 &5421758791232534069
 GameObject:
   m_ObjectHideFlags: 0
@@ -174,6 +176,7 @@ MonoBehaviour:
   maxSpawnInterval: 15
   randomizePosition: 1
   spawnArea: {x: 0.2, y: 0, z: 1}
+  parentName: ObjSpawned
 --- !u!1 &6038352037653931800
 GameObject:
   m_ObjectHideFlags: 0
@@ -271,6 +274,7 @@ MonoBehaviour:
   maxSpawnInterval: 15
   randomizePosition: 1
   spawnArea: {x: 0.2, y: 0, z: 1}
+  parentName: ObjSpawned
 --- !u!1 &6239900448708380792
 GameObject:
   m_ObjectHideFlags: 0
@@ -329,6 +333,7 @@ MonoBehaviour:
   maxSpawnInterval: 15
   randomizePosition: 1
   spawnArea: {x: 0.2, y: 0, z: 1}
+  parentName: ObjSpawned
 --- !u!1 &6772678908224059154
 GameObject:
   m_ObjectHideFlags: 0
@@ -387,6 +392,7 @@ MonoBehaviour:
   maxSpawnInterval: 15
   randomizePosition: 1
   spawnArea: {x: 0.2, y: 0, z: 1}
+  parentName: ObjSpawned
 --- !u!1 &7461451949126123487
 GameObject:
   m_ObjectHideFlags: 0
@@ -445,6 +451,7 @@ MonoBehaviour:
   maxSpawnInterval: 15
   randomizePosition: 1
   spawnArea: {x: 0.2, y: 0, z: 0.5}
+  parentName: ObjSpawned
 --- !u!1 &8901212033276181472
 GameObject:
   m_ObjectHideFlags: 0
@@ -503,3 +510,4 @@ MonoBehaviour:
   maxSpawnInterval: 15
   randomizePosition: 1
   spawnArea: {x: 0.2, y: 0, z: 0.5}
+  parentName: ObjSpawned
