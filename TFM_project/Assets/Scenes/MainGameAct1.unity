@@ -7059,10 +7059,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Marionette
       objectReference: {fileID: 0}
-    - target: {fileID: 5942169099242019817, guid: 1c676598b099b4340968163729d8e7c6, type: 3}
-      propertyPath: pushVel
-      value: 0.5
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
