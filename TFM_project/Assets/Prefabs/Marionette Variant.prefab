@@ -198,6 +198,46 @@ PrefabInstance:
       propertyPath: m_Volume
       value: 0.54
       objectReference: {fileID: 0}
+    - target: {fileID: 6011906129943194130, guid: 1c676598b099b4340968163729d8e7c6, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.0072161537
+      objectReference: {fileID: 0}
+    - target: {fileID: 6011906129943194130, guid: 1c676598b099b4340968163729d8e7c6, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.0013809577
+      objectReference: {fileID: 0}
+    - target: {fileID: 6011906129943194130, guid: 1c676598b099b4340968163729d8e7c6, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.008337773
+      objectReference: {fileID: 0}
+    - target: {fileID: 6011906129943194130, guid: 1c676598b099b4340968163729d8e7c6, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: -0.9990523
+      objectReference: {fileID: 0}
+    - target: {fileID: 6011906129943194130, guid: 1c676598b099b4340968163729d8e7c6, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.042694677
+      objectReference: {fileID: 0}
+    - target: {fileID: 6011906129943194130, guid: 1c676598b099b4340968163729d8e7c6, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.000063508734
+      objectReference: {fileID: 0}
+    - target: {fileID: 6011906129943194130, guid: 1c676598b099b4340968163729d8e7c6, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0.008473931
+      objectReference: {fileID: 0}
+    - target: {fileID: 6011906129943194130, guid: 1c676598b099b4340968163729d8e7c6, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: -184.894
+      objectReference: {fileID: 0}
+    - target: {fileID: 6011906129943194130, guid: 1c676598b099b4340968163729d8e7c6, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 180.049
+      objectReference: {fileID: 0}
+    - target: {fileID: 6011906129943194130, guid: 1c676598b099b4340968163729d8e7c6, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: -179.026
+      objectReference: {fileID: 0}
     - target: {fileID: 6277162735130253470, guid: 1c676598b099b4340968163729d8e7c6, type: 3}
       propertyPath: maxVolume
       value: 0.05
@@ -216,7 +256,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7765880197832633672, guid: 1c676598b099b4340968163729d8e7c6, type: 3}
       propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7765880197832633672, guid: 1c676598b099b4340968163729d8e7c6, type: 3}
+      propertyPath: m_UpdateMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7765880197832633672, guid: 1c676598b099b4340968163729d8e7c6, type: 3}
+      propertyPath: m_CullingMode
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7765880197832633672, guid: 1c676598b099b4340968163729d8e7c6, type: 3}
+      propertyPath: m_AnimatePhysics
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7765880197832633672, guid: 1c676598b099b4340968163729d8e7c6, type: 3}
+      propertyPath: m_ApplyRootMotion
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 5942169099242019817, guid: 1c676598b099b4340968163729d8e7c6, type: 3}
@@ -232,7 +288,13 @@ PrefabInstance:
       addedObject: {fileID: 4508088685016718840}
     - targetCorrespondingSourceObject: {fileID: 6204894749441238620, guid: 1c676598b099b4340968163729d8e7c6, type: 3}
       insertIndex: -1
+      addedObject: {fileID: 3118136121006009840}
+    - targetCorrespondingSourceObject: {fileID: 6204894749441238620, guid: 1c676598b099b4340968163729d8e7c6, type: 3}
+      insertIndex: -1
       addedObject: {fileID: 6108060803430308047}
+    - targetCorrespondingSourceObject: {fileID: 5229783924906226065, guid: 1c676598b099b4340968163729d8e7c6, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 160969551065045709}
     - targetCorrespondingSourceObject: {fileID: 5229783924906226065, guid: 1c676598b099b4340968163729d8e7c6, type: 3}
       insertIndex: -1
       addedObject: {fileID: 5667286494161397970}
@@ -278,6 +340,11 @@ MonoBehaviour:
   LLeg: {fileID: 6108060803430308047}
   RLeg: {fileID: 5667286494161397970}
   body: {fileID: 3649004103063656802}
+  UIlimbIndicators:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!54 &3973170766581022166 stripped
 Rigidbody:
   m_CorrespondingSourceObject: {fileID: 3701803717829342189, guid: 1c676598b099b4340968163729d8e7c6, type: 3}
@@ -288,6 +355,22 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 5229783924906226065, guid: 1c676598b099b4340968163729d8e7c6, type: 3}
   m_PrefabInstance: {fileID: 323409373683977787}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &160969551065045709
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5543675890503942058}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 19e127517cb39c546b53ff6668b48710, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  left: {fileID: 6108060803430308047}
+  right: {fileID: 5667286494161397970}
+  barType: leg
+  anim: {fileID: 0}
 --- !u!114 &5667286494161397970
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -300,8 +383,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e613e3863f4cc564386cdf243fa0998b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sensorLabel: MPU1
-  rotationOffset: {x: 0, y: 0, z: 0, w: 1}
+  sensorLabel: MPU3
+  x: 0
+  y: 0
+  z: 0
   movementThreshold: 0
   maxSpeed: 3
   isMoving: 0
@@ -321,6 +406,22 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 6204894749441238620, guid: 1c676598b099b4340968163729d8e7c6, type: 3}
   m_PrefabInstance: {fileID: 323409373683977787}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &3118136121006009840
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5935970786565597287}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 19e127517cb39c546b53ff6668b48710, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  left: {fileID: 6108060803430308047}
+  right: {fileID: 5667286494161397970}
+  barType: leg
+  anim: {fileID: 0}
 --- !u!114 &6108060803430308047
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -333,13 +434,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e613e3863f4cc564386cdf243fa0998b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sensorLabel: MPU0
-  rotationOffset: {x: 0, y: 0, z: 0, w: 1}
+  sensorLabel: MPU2
+  x: 180
+  y: 0
+  z: 0
   movementThreshold: 0
   maxSpeed: 3
   isMoving: 0
   moveAmtDir: {x: 0, y: 0, z: 0}
-  cooldownTime: 0
+  cooldownTime: 2
   onCooldown: 0
   pitch: 0
   limbType: leg
@@ -366,8 +469,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e613e3863f4cc564386cdf243fa0998b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sensorLabel: MPU2
-  rotationOffset: {x: 0, y: 0, z: 0, w: 1}
+  sensorLabel: MPU0
+  x: 0
+  y: -60
+  z: 0
   movementThreshold: 0
   maxSpeed: 3
   isMoving: 0
@@ -399,8 +504,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e613e3863f4cc564386cdf243fa0998b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sensorLabel: MPU3
-  rotationOffset: {x: 0, y: 0, z: 0, w: 1}
+  sensorLabel: MPU1
+  x: 0
+  y: -60
+  z: 0
   movementThreshold: 0
   maxSpeed: 3
   isMoving: 0
