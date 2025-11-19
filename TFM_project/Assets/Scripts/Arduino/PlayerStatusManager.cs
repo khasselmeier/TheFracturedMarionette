@@ -17,15 +17,14 @@ public class PlayerStatusManager : MonoBehaviour
     [SerializeField] private int[] LimbHealth;
 
     [Header("Limb OBJ")]
-    [SerializeField] private GyroLimb LArm;
-    [SerializeField] private GyroLimb RArm;
-    [SerializeField] private GyroLimb LLeg;
-    [SerializeField] private GyroLimb RLeg;
+    [SerializeField] private GyroMovementController LArm;
+    [SerializeField] private GyroMovementController RArm;
+    [SerializeField] private GyroMovementController LLeg;
+    [SerializeField] private GyroMovementController RLeg;
     public GameObject body;
 
     [Header("UI and Audio")]
     private SFXManager sfxManager;
-
 
     [SerializeField] private LimbHealthUI[] UIlimbIndicators;
     [Tooltip("MPU0 = left arm\r\n MPU1 = right arm\r\n MPU2 = left leg\r\n MPU3 = right leg")]
@@ -63,10 +62,10 @@ public class PlayerStatusManager : MonoBehaviour
         {
             UIlimbIndicators[limb].ChangeUI();
             LimbHealth[limb] -= limbDamageAmt;
-            if (limb == 0) DetachLimb(LArm, "arm");
-            else if (limb == 1) DetachLimb(RArm, "arm");
-            else if (limb == 2) DetachLimb(LLeg, "leg");
-            else if (limb == 3) DetachLimb(RLeg, "leg");
+            if (limb == 0) DetachLimb(LArm);
+            else if (limb == 1) DetachLimb(RArm);
+            else if (limb == 2) DetachLimb(LLeg);
+            else if (limb == 3) DetachLimb(RLeg);
         }
     }
 
@@ -80,7 +79,7 @@ public class PlayerStatusManager : MonoBehaviour
     }
 
     //disable limb script 
-    public void DetachLimb(GyroLimb Limb, string limbType)
+    public void DetachLimb(GyroMovementController Limb)
     {
         if(Limb.isAlive)
         {
@@ -89,26 +88,27 @@ public class PlayerStatusManager : MonoBehaviour
             _healthpoints -= 25; //take away from body health fourths for each limb
             Limb.GetComponent<GyroLimb>().enabled = false;
 
-
+            /*
             //based on what limb was just destroyed - either change speed or disable jump or climb based on other limbs health
-            if (limbType == "leg")
+            if (Limb.pairType == "leg")
             {
                 //decrease speed
-                maxSpeed -= 5;
+                //maxSpeed -= 5;
                 if(Limb.otherLimb.isAlive == false)
                 {
                     canJump = false;
                 }
 
             }
-            else if(limbType == "arm")
+            else if(Limb.pairType == "arm")
             {
-                maxSpeed -= 5;
+                //maxSpeed -= 5;
                 if (Limb.otherLimb.isAlive == false)
                 {
                     canClimb = false;
                 }
             }
+            */
         }
         else
         {

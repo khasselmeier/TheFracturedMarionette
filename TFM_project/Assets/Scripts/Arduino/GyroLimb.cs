@@ -15,6 +15,7 @@ public class GyroLimb : MonoBehaviour
     public float heightValue;
     public bool isRaised;
 
+
     private Quaternion currentQuat = Quaternion.identity;
 
     void Start()
@@ -42,7 +43,8 @@ public class GyroLimb : MonoBehaviour
             Vector3 upDir = currentQuat * Vector3.up;
 
             heightValue = upDir.y;
-            isRaised = heightValue > raiseThreshold;
+            heightValue = Mathf.Round(heightValue * 100f) / 100f;
+            isRaised = heightValue < raiseThreshold;
         }
     }
 }

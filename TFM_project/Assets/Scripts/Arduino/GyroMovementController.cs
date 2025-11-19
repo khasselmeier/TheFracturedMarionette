@@ -12,6 +12,7 @@ public class GyroMovementController : MonoBehaviour
     [Header("Limb Settings")]
     public string pairType = "arm";  
     public float heightDiffThreshold = 0.15f;
+    public bool isAlive;
 
     void Update()
     {
@@ -26,33 +27,42 @@ public class GyroMovementController : MonoBehaviour
         // IF both limbs raised trigger jump or climb anim 
         if (leftUp && rightUp)
         {
-            if (pairType == "arm")
-                anim.SetTrigger("Climb");
-            else
-                anim.SetTrigger("Jump");
+            if (L >= (R - heightDiffThreshold) && L <= (R + heightDiffThreshold)){
+                if (pairType == "arm")
+                    Debug.Log("Climb");
+                //anim.SetTrigger("Climb");
+                else
+                    Debug.Log("Jump");
+                //anim.SetTrigger("Jump");
 
-            return;
+                return;
+            }
         }
-
+        //
         // IF one limb higher than the other THEN trigger half-step or one-arm raise animations
-        if (L > R + heightDiffThreshold)
+        if (L < R)
         {
             if (pairType == "arm")
-                anim.SetTrigger("LeftArmRaise");
+                Debug.Log("Left arm raise");
+            //anim.SetTrigger("LeftArmRaise");
             else
-                anim.SetTrigger("LeftHalfStep");
+                Debug.Log("left half step");
+            //anim.SetTrigger("LeftHalfStep");
 
             return;
         }
 
-        if (R > L + heightDiffThreshold)
+        if (L > R)
         {
             if (pairType == "arm")
-                anim.SetTrigger("RightArmRaise");
+                Debug.Log("Right arm raise");
+            //anim.SetTrigger("RightArmRaise");
             else
-                anim.SetTrigger("RightHalfStep");
+                Debug.Log("Right half step");
+            //anim.SetTrigger("RightHalfStep");
 
             return;
         }
+
     }
 }
