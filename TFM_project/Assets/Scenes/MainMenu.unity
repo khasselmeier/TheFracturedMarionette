@@ -1858,7 +1858,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 2719975978002753748}
         m_TargetAssemblyTypeName: MasterUIManager, Assembly-CSharp
-        m_MethodName: PlayGame
+        m_MethodName: PlayBookGame
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

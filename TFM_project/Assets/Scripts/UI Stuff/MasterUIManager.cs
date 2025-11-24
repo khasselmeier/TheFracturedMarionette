@@ -12,6 +12,11 @@ public class MasterUIManager : MonoBehaviour
     public GameObject returnButton;
 
     //called when the Play button is pressed
+    public void PlayBookGame()
+    {
+        SceneManager.LoadScene("BookIntroduction");
+    }
+
     public void PlayGame()
     {
         SceneManager.LoadScene("MainGameAct1");
