@@ -15326,6 +15326,7 @@ GameObject:
   m_Component:
   - component: {fileID: 581413802}
   - component: {fileID: 581413803}
+  - component: {fileID: 581413804}
   m_Layer: 5
   m_Name: GameProgress_Slider
   m_TagString: Untagged
@@ -15406,6 +15407,21 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &581413804
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 581413801}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b0345a5f9d6a9174f88c5abc627e4dd7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 1392288503}
+  endPoint: {fileID: 829727154}
+  progressBar: {fileID: 581413803}
 --- !u!1 &585127810
 GameObject:
   m_ObjectHideFlags: 0
@@ -25642,7 +25658,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0.34500122}
+  m_AnchoredPosition: {x: 0, y: 0.3449707}
   m_SizeDelta: {x: 16.5602, y: 13.11}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1004365853
@@ -36483,6 +36499,11 @@ Transform:
   - {fileID: 962885833}
   m_Father: {fileID: 627352051}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &1392288503 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2259856488030323979, guid: 1c676598b099b4340968163729d8e7c6, type: 3}
+  m_PrefabInstance: {fileID: 1306092165}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1395044569
 GameObject:
   m_ObjectHideFlags: 0
@@ -43445,6 +43466,7 @@ GameObject:
   - component: {fileID: 1691393673}
   - component: {fileID: 1691393672}
   - component: {fileID: 1691393674}
+  - component: {fileID: 1691393675}
   m_Layer: 5
   m_Name: Marionette_Handle
   m_TagString: Untagged
@@ -43525,6 +43547,22 @@ Animation:
   m_AnimatePhysics: 0
   m_UpdateMode: 0
   m_CullingType: 0
+--- !u!114 &1691393675
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1691393670}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 720862d8d5e515f488bd921e2a11f94b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetImage: {fileID: 1691393672}
+  spriteA: {fileID: 21300000, guid: 8848d268a385a604f876546c779c30f6, type: 3}
+  spriteB: {fileID: 21300000, guid: 31927cd4656258c43b10cb9852d79c5a, type: 3}
+  interval: 0.5
 --- !u!1 &1692217436
 GameObject:
   m_ObjectHideFlags: 0
@@ -91057,7 +91095,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!1 &6181851067618939555
 GameObject:
   m_ObjectHideFlags: 0
