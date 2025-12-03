@@ -10,10 +10,17 @@ namespace DapperDino.Scoreboards
         [SerializeField] private GameObject scoreboardEntryObject = null;
 
         [Header("Test")]
-        [SerializeField] private string testEntryName = "New Name";
-        [SerializeField] private int testEntryScore = 0;
+        [SerializeField] public string testEntryName = "New Name";
+        [SerializeField] public float testEntryScore = 0f;
 
         private string SavePath => $"{Application.persistentDataPath}/highscores.json";
+
+        public static Scoreboard instance;
+
+        private void Awake()
+        {
+            instance = this;
+        }
 
         private void Start()
         {
@@ -43,7 +50,7 @@ namespace DapperDino.Scoreboards
             //Check if the score is high enough to be added.
             for (int i = 0; i < savedScores.highscores.Count; i++)
             {
-                if (testEntryScore > savedScores.highscores[i].entryScore)
+                if (scoreboardEntryData.entryScore > savedScores.highscores[i].entryScore)
                 {
                     savedScores.highscores.Insert(i, scoreboardEntryData);
                     scoreAdded = true;

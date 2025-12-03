@@ -85,6 +85,12 @@ public class LeaderboardManager : MonoBehaviourPunCallbacks
         ShowLeaderboard();
     }
 
+    public void AddExternalScore(string playerName, float score)
+    {
+        AddEntry(new LeaderboardEntry(playerName, score));
+        ShowLeaderboard();
+    }
+
     void AddEntry(LeaderboardEntry newEntry)
     {
         leaderboard.Add(newEntry);
