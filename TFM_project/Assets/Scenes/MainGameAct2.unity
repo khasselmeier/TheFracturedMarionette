@@ -281,6 +281,7 @@ GameObject:
   - component: {fileID: 89574055}
   - component: {fileID: 89574054}
   - component: {fileID: 89574053}
+  - component: {fileID: 89574058}
   m_Layer: 3
   m_Name: Sphere (1)
   m_TagString: Push
@@ -316,7 +317,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   promptText: {fileID: 265717786}
-  detectionRadius: 0.2
+  detectionRadius: 0.5
 --- !u!54 &89574054
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -418,6 +419,24 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 89574051}
   m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &89574058
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 89574051}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  outlineMode: 2
+  outlineColor: {r: 1, g: 1, b: 1, a: 1}
+  outlineWidth: 2
+  precomputeOutline: 0
+  bakeKeys: []
+  bakeValues: []
 --- !u!1 &108874842
 GameObject:
   m_ObjectHideFlags: 0
@@ -6796,6 +6815,7 @@ GameObject:
   - component: {fileID: 1202518771}
   - component: {fileID: 1202518776}
   - component: {fileID: 1202518775}
+  - component: {fileID: 1202518777}
   m_Layer: 3
   m_Name: Sphere
   m_TagString: Push
@@ -6905,7 +6925,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   promptText: {fileID: 265717786}
-  detectionRadius: 0.2
+  detectionRadius: 0.5
 --- !u!54 &1202518776
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -6933,6 +6953,24 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 2
+--- !u!114 &1202518777
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1202518770}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  outlineMode: 2
+  outlineColor: {r: 1, g: 1, b: 1, a: 1}
+  outlineWidth: 2
+  precomputeOutline: 0
+  bakeKeys: []
+  bakeValues: []
 --- !u!1001 &1221140350
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -12573,6 +12611,7 @@ GameObject:
   - component: {fileID: 4496767685491270560}
   - component: {fileID: 8120159684919688399}
   - component: {fileID: 8120159684919688400}
+  - component: {fileID: 8120159684919688401}
   m_Layer: 3
   m_Name: bag (2)
   m_TagString: Push
@@ -13464,7 +13503,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   promptText: {fileID: 265717786}
-  detectionRadius: 0.3
+  detectionRadius: 0.5
 --- !u!4 &904119940609177886
 Transform:
   m_ObjectHideFlags: 0
@@ -20566,7 +20605,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   promptText: {fileID: 265717786}
-  detectionRadius: 0.3
+  detectionRadius: 0.5
 --- !u!23 &4500507180628456213
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -25822,6 +25861,7 @@ GameObject:
   - component: {fileID: 887488832428062782}
   - component: {fileID: 9203513109890009745}
   - component: {fileID: 9203513109890009746}
+  - component: {fileID: 9203513109890009747}
   m_Layer: 3
   m_Name: bag_open (1)
   m_TagString: Push
@@ -27371,6 +27411,24 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.7363353, y: 1.0284474, z: 0.76986945}
   m_Center: {x: 0.022839934, y: 0.5142243, z: 0.0038566443}
+--- !u!114 &8120159684919688401
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 433756363790320828}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  outlineMode: 2
+  outlineColor: {r: 1, g: 1, b: 1, a: 1}
+  outlineWidth: 2
+  precomputeOutline: 0
+  bakeKeys: []
+  bakeValues: []
 --- !u!4 &8129735729389710335
 Transform:
   m_ObjectHideFlags: 0
@@ -28888,6 +28946,24 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.7434864, y: 0.83081174, z: 0.77734613}
   m_Center: {x: 0.023000106, y: 0.41540617, z: 0.003863275}
+--- !u!114 &9203513109890009747
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7320791791298156727}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  outlineMode: 2
+  outlineColor: {r: 1, g: 1, b: 1, a: 1}
+  outlineWidth: 2
+  precomputeOutline: 0
+  bakeKeys: []
+  bakeValues: []
 --- !u!33 &9209182451282121600
 MeshFilter:
   m_ObjectHideFlags: 0
