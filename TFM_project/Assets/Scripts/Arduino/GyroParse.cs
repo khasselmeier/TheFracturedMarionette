@@ -41,7 +41,6 @@ public class GyroParse : MonoBehaviour
 
     void Update()
     {
-        
         if (arduinoPort != null && arduinoPort.IsOpen && arduinoPort.BytesToRead > 0)
         {
             try
@@ -65,7 +64,6 @@ public class GyroParse : MonoBehaviour
 
     void ProcessLine(string line)
     {
-        // Expect lines like "MPU0: w,x,y,z"
         if (string.IsNullOrEmpty(line)) return;
 
         var parts = line.Split(':');
@@ -84,7 +82,6 @@ public class GyroParse : MonoBehaviour
         {
             // Convert from MPU6050 right-handed Y-forward, Z-up to Unity left-handed Y-up, Z-forward
             quatMap[label] = new Quaternion(x, z, -y, w);
-
         }
     }
 

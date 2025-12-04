@@ -4,65 +4,48 @@ public class GyroMovementController : MonoBehaviour
 {
     [Header("Limb References")]
     public GyroLimb leftLimb;
-    public GyroLimb rightLimb;
+
 
     [Header("Animation")]
-    public Animator anim; //Anims allow root motion to apply physics
+    public Animator anim;
 
     [Header("Limb Settings")]
-    public string pairType = "arm";  
-    public float heightDiffThreshold = 0.15f;
+    public string pairType;
+    public float heightDiffThreshold;  // Height threshold to trigger movement
     public bool isAlive;
+    public float climbThreshold = 0.5f;
+
 
     void Update()
     {
-        if (!leftLimb || !rightLimb || !anim) return;
 
-        float L = leftLimb.heightValue;
-        float R = rightLimb.heightValue;
+        // Get the Y-axis height values from both gyros
+        float leftHeight = leftLimb.heightValue;
 
-        bool leftUp = leftLimb.isRaised;
-        bool rightUp = rightLimb.isRaised;
-
-        // IF both limbs raised trigger jump or climb anim 
-        if (leftUp && rightUp)
+        // Check if both limbs are raised similarly
+        /////////////////////////////ARMS///////////////////////////////////////////////////////
+        if(pairType == "arm")
         {
-            if (L >= (R - heightDiffThreshold) && L <= (R + heightDiffThreshold)){
-                if (pairType == "arm")
-                    Debug.Log("Climb");
-                //anim.SetTrigger("Climb");
-                else
-                    Debug.Log("Jump");
-                //anim.SetTrigger("Jump");
-
-                return;
+            if(leftHeight >= climbThreshold)
+            {
+                Debug.Log("trigger climb");
             }
         }
-        //
-        // IF one limb higher than the other THEN trigger half-step or one-arm raise animations
-        if (L < R)
-        {
-            if (pairType == "arm")
-                Debug.Log("Left arm raise");
-            //anim.SetTrigger("LeftArmRaise");
-            else
-                Debug.Log("left half step");
-            //anim.SetTrigger("LeftHalfStep");
+        ////////////////////////////LEGS///////////////////////////////////////////////////////
+        // Left limb is higher
 
-            return;
-        }
+            if(pairType == "leg" && leftLimb.isRaised)
+            {
+                Debug.Log("Left half step");
+                // anim.SetTrigger("LeftHalfStep");
+            }
+       
+        // Right limb is higher (because left limb is lower)
 
-        if (L > R)
-        {
-            if (pairType == "arm")
-                Debug.Log("Right arm raise");
-            //anim.SetTrigger("RightArmRaise");
-            else
+            if (pairType == "leg" && leftLimb.isLowered)
+            {
                 Debug.Log("Right half step");
-            //anim.SetTrigger("RightHalfStep");
-
-            return;
-        }
-
+                // anim.SetTrigger("RightHalfStep");
+            }
     }
 }

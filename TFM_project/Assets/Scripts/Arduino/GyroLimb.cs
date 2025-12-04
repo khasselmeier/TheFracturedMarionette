@@ -2,49 +2,32 @@ using UnityEngine;
 
 public class GyroLimb : MonoBehaviour
 {
-    [Header("Serial Manager")]
-    public string sensorLabel = "MPU0";
-
-    [Header("Calibration")]
-    private Quaternion rotationOffset = Quaternion.identity;
-    private Quaternion calibrationOffset = Quaternion.identity;
-    private bool isCalibrated = false;
-
-    [Header("Bar Raising Detection")]
-    public float raiseThreshold = 0.60f;
-    public float heightValue;
-    public bool isRaised;
+    public string label;  // Identifier for the gyro sensor
+    public float heightValue;  // Representing the height or vertical displacement
+    public float Hthreshold;
+    public float Lthreshold;
+    public bool isRaised;  // above HighLvl threshold
+    public bool isNeutral;    public bool isLowered; //below LowLvl threshold
 
 
-    private Quaternion currentQuat = Quaternion.identity;
-
-    void Start()
+    void Update()
     {
-        rotationOffset = Quaternion.identity;
-    }
-
-    void LateUpdate()
-    {
-        if (!GyroParse.Instance) return;
-
-        if (GyroParse.Instance.TryGetQuaternion(sensorLabel, out Quaternion rawQuat))
+        if (Input.GetKeyDown(KeyCode.G))
         {
-            if (!isCalibrated)
-            {
-                calibrationOffset = Quaternion.Inverse(rawQuat);
-                isCalibrated = true;
-                Debug.Log($"{sensorLabel} calibrated");
-            }
+            Hthreshold = heightValue + 0.1f;
+            Lthreshold = heightValue - 0.1f;
+        }
+        // Assuming you have access to the gyro data via the GyroParse
+        if (GyroParse.Instance.TryGetQuaternion(label, out Quaternion quat))
+        {
+            // Get the height component (you could use the Y component of the quaternion)
+            heightValue = quat.y;  // or adjust this based on your sensor data's axis alignment
 
-            Quaternion calibrated = calibrationOffset * rawQuat;
-            currentQuat = calibrated * rotationOffset;
+            // Determine if the limb is "raised"
+            isRaised = heightValue >= Hthreshold;  // Example threshold for being "raised"
+            isLowered = heightValue <= Lthreshold;
 
-            // compute height
-            Vector3 upDir = currentQuat * Vector3.up;
-
-            heightValue = upDir.y;
-            heightValue = Mathf.Round(heightValue * 100f) / 100f;
-            isRaised = heightValue < raiseThreshold;
         }
     }
+
 }
