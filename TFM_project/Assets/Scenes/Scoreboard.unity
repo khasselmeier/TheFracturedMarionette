@@ -1038,6 +1038,7 @@ MonoBehaviour:
   userName: 
   score: 0
   inputField: {fileID: 1269205752}
+  scoreDisplay: {fileID: 1668858783}
   scoreboardScreen: {fileID: 395942301}
   nameEntryScreen: {fileID: 461214687}
 --- !u!1 &519364900

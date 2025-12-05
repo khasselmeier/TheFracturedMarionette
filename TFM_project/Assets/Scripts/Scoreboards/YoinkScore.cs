@@ -8,6 +8,7 @@ public class YoinkScore : MonoBehaviour
     public string userName;
     public float score = 100000f;
     public TMP_InputField inputField;
+    public TMP_Text scoreDisplay;
 
     public GameObject scoreboardScreen;
     public GameObject nameEntryScreen;
@@ -28,7 +29,8 @@ public class YoinkScore : MonoBehaviour
     {
         float tempscore = GameManager.Instance.totalPlayTime;
         score = Mathf.Round(tempscore * 100f) / 100f;
-        Debug.Log(score);
+        scoreDisplay.text = "Score: " + tempscore;
+        //Debug.Log(score);
     }
 
     public void NameEntry()
