@@ -13,7 +13,8 @@ namespace DapperDino.Scoreboards
         [SerializeField] public string testEntryName = "New Name";
         [SerializeField] public float testEntryScore = 0f;
 
-        private string SavePath => $"{Application.persistentDataPath}/highscores.json";
+        //private string SavePath => $"{Application.persistentDataPath}/highscores.json";
+        private string SavePath => $"{Application.dataPath}/Resources/ScoreData/highscores.json";
 
         public static Scoreboard instance;
 
@@ -29,6 +30,8 @@ namespace DapperDino.Scoreboards
             UpdateUI(savedScores);
 
             SaveScores(savedScores);
+
+            Debug.Log($"Saving highscores to: {SavePath}");
         }
 
         [ContextMenu("Add Test Entry")]
