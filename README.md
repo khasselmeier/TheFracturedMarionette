@@ -1,4 +1,10 @@
 # TheFracturedMarionette
+
+[The Fractured Marionette Submission Video](https://www.youtube.com/watch?v=Rlh9cny17hU&feature=youtu.be)
+
+[Game Design Document](https://github.com/user-attachments/files/23973564/The.Fractured.Marionette.Design.Document.pdf)
+
+
 ### Game Description
 Guide a marionette to freedom using a real puppet as a controller. Gyroscopes on an Arduino Uno track your hand’s tilt, so every step the puppet takes is mirrored in-game. Experience the puppet come alive in an immersive experience where your gestures guide every step through an unconventional game controller.
 
