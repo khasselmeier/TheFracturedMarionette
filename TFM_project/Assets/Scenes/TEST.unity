@@ -394,7 +394,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7c6d3cb893b29834bba92ecd54a54af3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targetPort: COM5
+  targetPort: COM4
   baudRate: 115200
 --- !u!1001 &968470930
 PrefabInstance:
@@ -784,14 +784,6 @@ PrefabInstance:
     - target: {fileID: 3649004103063656802, guid: 6f67a1229a40aef4cbbf280e092ed6d8, type: 3}
       propertyPath: m_Name
       value: Marionette Variant
-      objectReference: {fileID: 0}
-    - target: {fileID: 4508088685016718840, guid: 6f67a1229a40aef4cbbf280e092ed6d8, type: 3}
-      propertyPath: LArm
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 4508088685016718840, guid: 6f67a1229a40aef4cbbf280e092ed6d8, type: 3}
-      propertyPath: LLeg
-      value: 
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

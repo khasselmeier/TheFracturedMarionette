@@ -715,13 +715,21 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 160969551065045709, guid: 6f67a1229a40aef4cbbf280e092ed6d8, type: 3}
+      propertyPath: MoveAmt.z
+      value: -0.05
+      objectReference: {fileID: 0}
+    - target: {fileID: 160969551065045709, guid: 6f67a1229a40aef4cbbf280e092ed6d8, type: 3}
+      propertyPath: stepReady
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1458537285524978367, guid: 6f67a1229a40aef4cbbf280e092ed6d8, type: 3}
       propertyPath: flickerInterval
       value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 1954672859710212912, guid: 6f67a1229a40aef4cbbf280e092ed6d8, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -110.293
+      value: -110.2
       objectReference: {fileID: 0}
     - target: {fileID: 1954672859710212912, guid: 6f67a1229a40aef4cbbf280e092ed6d8, type: 3}
       propertyPath: m_LocalPosition.y
@@ -765,7 +773,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3649004103063656802, guid: 6f67a1229a40aef4cbbf280e092ed6d8, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1245,7 +1253,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &187659029
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1258,7 +1266,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7c6d3cb893b29834bba92ecd54a54af3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targetPort: COM5
+  targetPort: COM4
   baudRate: 115200
 --- !u!4 &187659030
 Transform:
@@ -6692,7 +6700,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3953921855730636633, guid: 1c676598b099b4340968163729d8e7c6, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5031235175808782000, guid: 1c676598b099b4340968163729d8e7c6, type: 3}
       propertyPath: m_Enabled

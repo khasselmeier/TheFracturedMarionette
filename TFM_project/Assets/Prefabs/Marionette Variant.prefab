@@ -354,8 +354,8 @@ MonoBehaviour:
   maxSpeed: 20
   maxLimbHealth: 20
   limbDamageAmt: 10
-  canClimb: 1
-  canJump: 1
+  canClimb: 0
+  canJump: 0
   LimbHealth: 14000000140000001400000014000000
   LArm: {fileID: 0}
   RArm: {fileID: 5875938032632477762}
@@ -385,7 +385,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   leftLimb: {fileID: 5667286494161397970}
+  player: {fileID: 3649004103063656802}
   anim: {fileID: 8050476776695718771}
+  playDuration: 2
+  ClipName: WalkAnim
   pairType: leg
   heightDiffThreshold: 1
   isAlive: 1
@@ -432,7 +435,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   leftLimb: {fileID: 2837216346067765115}
+  player: {fileID: 3649004103063656802}
   anim: {fileID: 8050476776695718771}
+  playDuration: 1
+  ClipName: 
   pairType: arm
   heightDiffThreshold: 0.2
   isAlive: 1

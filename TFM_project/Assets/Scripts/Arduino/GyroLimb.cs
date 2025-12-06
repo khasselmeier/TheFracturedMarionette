@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class GyroLimb : MonoBehaviour
@@ -7,13 +8,21 @@ public class GyroLimb : MonoBehaviour
     public float Hthreshold;
     public float Lthreshold;
     public bool isRaised;  // above HighLvl threshold
-    public bool isNeutral;    public bool isLowered; //below LowLvl threshold
+    public bool isNeutral;
+    public bool isLowered; //below LowLvl threshold
 
-
+    public void Start()
+    {
+        if(heightValue == 0)
+        {
+            StartCoroutine(WaitForReadVal());
+        }
+    }
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.G))
         {
+            Debug.Log("Set Threshold");
             Hthreshold = heightValue + 0.1f;
             Lthreshold = heightValue - 0.1f;
         }
@@ -29,5 +38,11 @@ public class GyroLimb : MonoBehaviour
 
         }
     }
-
+    IEnumerator WaitForReadVal()
+    {
+        yield return new WaitForSeconds(3f);
+            Hthreshold = heightValue + 0.1f;
+            Lthreshold = heightValue - 0.1f;
+        isNeutral = true;
+    }
 }
