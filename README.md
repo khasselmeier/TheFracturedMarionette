@@ -2,7 +2,7 @@
 
 [The Fractured Marionette Submission Video](https://www.youtube.com/watch?v=Rlh9cny17hU&feature=youtu.be)
 
-[Game Design Document](https://github.com/user-attachments/files/23973564/The.Fractured.Marionette.Design.Document.pdf)
+[Download the Game Design Document](https://github.com/user-attachments/files/23973564/The.Fractured.Marionette.Design.Document.pdf)
 
 
 ### Game Description
